@@ -1,0 +1,27 @@
+{
+  "data": {
+    "cfApps": [
+      {
+        "id": "id1",
+        "spaceId": "space1",
+        "appId": "app1",
+        "name": "app1",
+        "__typename": "cfApp"
+      },
+      {
+        "id": "id2",
+        "spaceId": "space2",
+        "appId": "app2",
+        "name": "app2",
+        "__typename": "cfApp"
+      },
+      {
+        "id": "id3",
+        "spaceId": "space3",
+        "appId": "app3",
+        "name": "app3",
+        "__typename": "cfApp"
+      }
+    ]
+  }
+}

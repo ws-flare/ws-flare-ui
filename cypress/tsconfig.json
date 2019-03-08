@@ -1,0 +1,16 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "lib": [
+      "es2017",
+      "dom",
+      "esnext.asynciterable"
+    ]
+  },
+  "include": [
+    "integration/**/*ts",
+    "support/**/*.ts",
+    "../node_modules/cypress"
+  ],
+  "exclude": []
+}

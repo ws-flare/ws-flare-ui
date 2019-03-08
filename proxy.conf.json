@@ -1,0 +1,7 @@
+{
+  "/graphql": {
+    "target": "http://test-unicron-gateway",
+    "secure": false,
+    "logLevel": "debug"
+  }
+}

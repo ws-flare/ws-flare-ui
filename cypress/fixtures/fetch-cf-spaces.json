@@ -1,0 +1,21 @@
+{
+  "data": {
+    "cfSpaces": [
+      {
+        "id": "id1",
+        "name": "space1",
+        "__typename": "cfSpace"
+      },
+      {
+        "id": "id2",
+        "name": "space2",
+        "__typename": "cfSpace"
+      },
+      {
+        "id": "id3",
+        "name": "space3",
+        "__typename": "cfSpace"
+      }
+    ]
+  }
+}

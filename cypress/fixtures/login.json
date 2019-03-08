@@ -1,0 +1,10 @@
+{
+  "data": {
+    "login": {
+      "userId": "abc123",
+      "token": "test_token",
+      "username": "test_user",
+      "__typename": "login"
+    }
+  }
+}

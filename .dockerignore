@@ -1,0 +1,15 @@
+node_modules/
+src/
+cypress
+./editorconfig
+./.travis.yml
+./cypress.json
+./gitignore
+./Dockerfile
+./angular.json
+./jest.config.js
+./proxy.conf.json
+./README.md
+./server.ts
+./webpack.server.config.js
+./yarn.lock
