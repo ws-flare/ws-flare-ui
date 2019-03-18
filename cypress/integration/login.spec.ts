@@ -1,4 +1,4 @@
-import {navigateTo, usernameInput, passwordInput, loginButton} from '../support/login.po';
+import { navigateTo, usernameInput, passwordInput, loginButton } from '../support/login.po';
 
 describe('Login', () => {
 
@@ -21,5 +21,7 @@ describe('Login', () => {
     usernameInput().type('testUsername');
     passwordInput().type('testPassword');
     loginButton().click();
+
+    cy.url().should('contain', '/projects');
   });
 });

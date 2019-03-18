@@ -1,12 +1,12 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import * as actions from './user.actions';
-import {mergeMap, catchError, withLatestFrom, map} from 'rxjs/operators';
-import {Effect, ofType, Actions} from '@ngrx/effects';
-import {of} from 'rxjs';
-import {UserService} from './user.service';
-import {AppState} from '../app.state';
-import {Store} from '@ngrx/store';
-import {Router} from '@angular/router';
+import { mergeMap, catchError, withLatestFrom, map } from 'rxjs/operators';
+import { Effect, ofType, Actions } from '@ngrx/effects';
+import { of } from 'rxjs';
+import { UserService } from './user.service';
+import { AppState } from '../app.state';
+import { Store } from '@ngrx/store';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class UserEffects {
@@ -18,7 +18,7 @@ export class UserEffects {
     mergeMap((loginForm) =>
       this.userService.login(loginForm.username, loginForm.password).pipe(
         mergeMap((user) => {
-          this.router.navigate(['/cf-spaces']);
+          this.router.navigate(['/projects']);
           return of(new actions.LoginOk(user.data.login));
         }),
         catchError(() => of(new actions.LoginFail()))
