@@ -1,0 +1,21 @@
+{
+  "data": {
+    "projects": [
+      {
+        "id": "id1",
+        "name": "project1",
+        "__typename": "project"
+      },
+      {
+        "id": "id2",
+        "name": "project2",
+        "__typename": "project"
+      },
+      {
+        "id": "id3",
+        "name": "project3",
+        "__typename": "project"
+      }
+    ]
+  }
+}
