@@ -1,12 +1,12 @@
 import { Inject, NgModule, PLATFORM_ID } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ActionReducer, StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { Apollo, ApolloModule } from 'apollo-angular';
 import { HttpLink, HttpLinkModule } from 'apollo-angular-link-http';
-import { ApolloLink, split } from 'apollo-link';
+import { ApolloLink } from 'apollo-link';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { localStorageSync } from 'ngrx-store-localstorage';
 import { storeLogger } from 'ngrx-store-logger';
@@ -16,7 +16,6 @@ import { environment } from '../../environments/environment';
 import { UserState } from '../user/user.state';
 import { customStorage } from '../custom-local-storage';
 import { reducer as userReducer } from '../user/user.reducer';
-import { getMainDefinition } from 'apollo-utilities';
 
 export function logger(reducer: ActionReducer<AppState>): any {
   return storeLogger()(reducer);
