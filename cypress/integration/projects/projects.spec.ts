@@ -1,4 +1,4 @@
-import { navigateToProjects, projectsListLength } from '../../support/projects/projects.po';
+import { navigateToProjects, projectsListLength, projectListItems } from '../../support/projects/projects.po';
 
 describe('Projects', () => {
 
@@ -16,6 +16,12 @@ describe('Projects', () => {
 
   it('should display a list of projects', () => {
     projectsListLength().should('eq', 3);
+  });
+
+  it('should be able to click an organization', () => {
+    projectListItems().eq(1).click();
+
+    cy.url().should('contain', '/projects/id2');
   });
 
 });

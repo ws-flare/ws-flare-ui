@@ -32,7 +32,6 @@ const routes: Routes = [
     MatListModule,
     MatDialogModule,
     MatInputModule,
-    ReactiveFormsModule,
     MatButtonModule,
     MatIconModule
   ],

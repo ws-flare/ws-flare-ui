@@ -11,5 +11,10 @@ export const appRoutes: Routes = [
     loadChildren: './projects/projects.module#ProjectsModule',
     canActivate: [IsLoggedInGuard]
   },
+  {
+    path: 'projects/:projectId',
+    loadChildren: './tasks/tasks.module#TasksModule',
+    canActivate: [IsLoggedInGuard]
+  },
   {path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
