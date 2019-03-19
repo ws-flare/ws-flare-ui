@@ -7,6 +7,7 @@ import { AppState } from '../app.state';
 import { ProjectsService } from './projects.service';
 import { ProjectsEffects } from './projects.effects';
 import { Project } from './Project.model';
+import * as appActions from '../app.actions';
 
 jest.mock('./projects.service');
 jest.mock('@angular/router');
@@ -62,7 +63,7 @@ describe('User Effects', () => {
 
       const source = cold('a', {a: new actions.CreateProject('project1')});
 
-      const expected = cold('a', {a: new actions.CreateProjectOk({id: 'abc123', name: 'project1'})});
+      const expected = cold('(ab)', {a: new actions.CreateProjectOk({id: 'abc123', name: 'project1'}), b: new appActions.CloseAllModals()});
 
       const effects = new ProjectsEffects(new Actions(source), store, new ProjectsService(null));
 

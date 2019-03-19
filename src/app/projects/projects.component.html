@@ -1,1 +1,5 @@
 <app-projects-list [projects]="projects$ | async"></app-projects-list>
+
+<button id="create-project" mat-fab (click)="openCreateProjectDialog()">
+  <mat-icon>add</mat-icon>
+</button>

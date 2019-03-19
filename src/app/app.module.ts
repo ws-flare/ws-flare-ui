@@ -7,6 +7,9 @@ import { CoreModule } from './core/core.module';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { IsLoggedInGuard } from './core/is-logged-in.guard';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effects';
+import { MatDialogModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,10 @@ import { IsLoggedInGuard } from './core/is-logged-in.guard';
     CoreModule,
     BrowserModule.withServerTransition({appId: 'my-app'}),
     RouterModule.forRoot(appRoutes),
+    EffectsModule.forRoot([AppEffects]),
+
+    // Material
+    MatDialogModule
   ],
   providers: [
     IsLoggedInGuard

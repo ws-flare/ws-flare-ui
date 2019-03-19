@@ -4,8 +4,9 @@ import { AppState } from '../app.state';
 import { Store } from '@ngrx/store';
 import { ProjectsService } from './projects.service';
 import * as actions from './projects.actions';
-import { catchError, mergeMap } from 'rxjs/operators';
+import { catchError, mergeMap, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
+import * as appActions from '../app.actions';
 
 @Injectable()
 export class ProjectsEffects {
@@ -24,7 +25,11 @@ export class ProjectsEffects {
     ofType<actions.CreateProject>(actions.CREATE_PROJECT),
     mergeMap(({name}) =>
       this.service.createProject(name).pipe(
-        mergeMap((user) => of(new actions.CreateProjectOk(user.data.createProject))),
+        switchMap((user) => [
+            new actions.CreateProjectOk(user.data.createProject),
+            new appActions.CloseAllModals()
+          ]
+        ),
         catchError(() => of(new actions.CreateProjectFail()))
       )
     )
