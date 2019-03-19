@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { AppState } from '../app.state';
 import { Store } from '@ngrx/store';
-import { mergeMap } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 
 @Injectable()
 export class IsLoggedInGuard implements CanActivate {
@@ -11,7 +11,7 @@ export class IsLoggedInGuard implements CanActivate {
   isLoggedIn$: Observable<boolean>;
 
   constructor(private store: Store<AppState>, private router: Router) {
-    this.isLoggedIn$ = store.select('user', 'isLoggedIn');
+    this.isLoggedIn$ = store.pipe(map(state => state.user.isLoggedIn));
   }
 
   canActivate(): Observable<boolean> {
