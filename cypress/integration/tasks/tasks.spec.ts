@@ -1,4 +1,4 @@
-import { navigateToTasks, taskssListLength } from '../../support/tasks/tasks.po';
+import { navigateToTasks, taskssListLength, taskListItems } from '../../support/tasks/tasks.po';
 
 describe('Tasks', () => {
 
@@ -16,6 +16,12 @@ describe('Tasks', () => {
 
   it('should display a list of tasks', () => {
     taskssListLength().should('eq', 3);
+  });
+
+  it('should be able to click on a task', () => {
+    taskListItems().eq(1).click();
+
+    cy.url().should('contain', '/projects/abc123/id2');
   });
 
 });
