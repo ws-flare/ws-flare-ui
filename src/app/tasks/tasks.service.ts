@@ -19,7 +19,7 @@ const tasksQuery = gql`
 `;
 
 const createTaskMutation = gql`
-  mutation createTask($name: String!) {
+  mutation createTask($projectId: String! $name: String! $uri: String! $totalSimulatedUsers: Int! $runTime: Int!) {
     createTask(projectId: $projectId name: $name uri: $uri totalSimulatedUsers: $totalSimulatedUsers runTime: $runTime) {
       id
       userId
