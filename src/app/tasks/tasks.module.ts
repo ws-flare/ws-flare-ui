@@ -9,6 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducer } from './tasks.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { TasksEffects } from './tasks.effects';
+import { CreateTaskModalComponent } from './create-task-modal/create-task-modal.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [TasksComponent, TasksListComponent],
+  declarations: [TasksComponent, TasksListComponent, CreateTaskModalComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -33,6 +34,9 @@ const routes: Routes = [
     MatInputModule,
     MatButtonModule,
     MatIconModule
+  ],
+  entryComponents: [
+    CreateTaskModalComponent
   ]
 })
 export class TasksModule {

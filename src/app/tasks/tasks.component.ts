@@ -6,6 +6,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Task } from './task.model';
 import { map } from 'rxjs/operators';
+import { MatDialog } from '@angular/material';
+import { CreateTaskModalComponent } from './create-task-modal/create-task-modal.component';
 
 @Component({
   selector: 'app-tasks',
@@ -16,12 +18,16 @@ export class TasksComponent implements OnInit {
 
   tasks$: Observable<Task[]>;
 
-  constructor(private store: Store<ModuleState>, private route: ActivatedRoute) {
+  constructor(private store: Store<ModuleState>, private route: ActivatedRoute, private dialog: MatDialog) {
     this.tasks$ = store.pipe(map(state => state.tasks.tasks));
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => this.store.dispatch(new actions.FetchTasks(params.projectId)));
+  }
+
+  openCreateTaskDialog() {
+    this.route.params.subscribe(({projectId}) => this.dialog.open(CreateTaskModalComponent, {width: '250px', data: projectId}));
   }
 
 }

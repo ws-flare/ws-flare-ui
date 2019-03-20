@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Create Task</h2>
+
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field>
+      <input id="name" matInput formControlName="name" placeholder="Name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input id="uri" matInput formControlName="uri" placeholder="URI">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input id="totalSimulatedUsers" matInput formControlName="totalSimulatedUsers"
+             placeholder="Total Simulated Users">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input id="runTime" matInput formControlName="runTime" placeholder="Run Time">
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button (click)="submit()">Submit</button>
+</div>

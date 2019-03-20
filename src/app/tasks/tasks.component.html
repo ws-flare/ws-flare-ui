@@ -1,1 +1,6 @@
 <app-tasks-list [tasks]="tasks$ | async"></app-tasks-list>
+
+<button id="create-task" class="md-fab-bottom-right" mat-fab (click)="openCreateTaskDialog()">
+  <mat-icon>add</mat-icon>
+</button>
+

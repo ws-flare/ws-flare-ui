@@ -6,8 +6,11 @@ import { Store } from '@ngrx/store';
 import * as actions from './tasks.actions';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
+import { MatDialog } from '@angular/material';
+import { CreateTaskModalComponent } from './create-task-modal/create-task-modal.component';
 
 jest.mock('@ngrx/store');
+jest.mock('@angular/material');
 
 describe('TasksComponent', () => {
   let component: TasksComponent;
@@ -28,6 +31,10 @@ describe('TasksComponent', () => {
           useValue: {
             params: of({projectId: 'abc123'})
           }
+        },
+        {
+          provide: MatDialog,
+          useValue: new MatDialog(null, null, null, null, null, null, null)
         }
       ]
     });
@@ -46,5 +53,15 @@ describe('TasksComponent', () => {
 
   it('should dispatch an action to get a list of tasks', () => {
     expect(Store.prototype.dispatch).toHaveBeenCalledWith(new actions.FetchTasks('abc123'));
+  });
+
+  it('should have a button to create a new task', () => {
+    expect(element.querySelector('button#create-task')).not.toBeNull();
+  });
+
+  it('should open create task dialog when user clicks the create project button', () => {
+    element.querySelector('button#create-task').click();
+
+    expect(MatDialog.prototype.open).toHaveBeenCalledWith(CreateTaskModalComponent, {width: '250px', data: 'abc123'});
   });
 });
