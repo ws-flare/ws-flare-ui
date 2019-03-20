@@ -18,7 +18,7 @@ describe('Projects', () => {
     projectsListLength().should('eq', 3);
   });
 
-  it('should be able to click an organization', () => {
+  it('should be able to click on a project', () => {
     projectListItems().eq(1).click();
 
     cy.url().should('contain', '/projects/id2');

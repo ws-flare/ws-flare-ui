@@ -1,0 +1,5 @@
+<app-jobs-list [jobs]="jobs$ | async"></app-jobs-list>
+
+<button id="start-job" class="md-fab-bottom-right" mat-fab (click)="startJob()">
+  <mat-icon>play_arrow</mat-icon>
+</button>

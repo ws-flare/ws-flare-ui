@@ -1,0 +1,33 @@
+{
+  "data": {
+    "jobs": [
+      {
+        "id": "id1",
+        "createdAt": "Today1",
+        "userId": "user1",
+        "taskId": "task1",
+        "isRunning": true,
+        "passed": false,
+        "__typename": "job"
+      },
+      {
+        "id": "id2",
+        "createdAt": "Today2",
+        "userId": "user2",
+        "taskId": "task1",
+        "isRunning": false,
+        "passed": true,
+        "__typename": "task"
+      },
+      {
+        "id": "id3",
+        "createdAt": "Today3",
+        "userId": "user3",
+        "taskId": "task1",
+        "isRunning": false,
+        "passed": false,
+        "__typename": "job"
+      }
+    ]
+  }
+}
