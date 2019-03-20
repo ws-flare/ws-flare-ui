@@ -22,8 +22,8 @@ export class CreateTaskModalComponent implements OnInit {
     this.form = this.formBuilder.group({
       name: [null, [Validators.required]],
       uri: [null, [Validators.required]],
-      totalSimulatedUsers: [null, [Validators.required]],
-      runTime: [null, [Validators.required]]
+      totalSimulatedUsers: [1000, [Validators.required]],
+      runTime: [30, [Validators.required]]
     });
   }
 
