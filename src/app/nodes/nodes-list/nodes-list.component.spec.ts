@@ -23,15 +23,27 @@ describe('NodesListComponent', () => {
     component.nodes = [
       {
         id: 'abc1',
-        name: 'node1'
+        name: 'node1',
+        running: false,
+        totalSuccessfulConnections: 10,
+        totalFailedConnections: 20,
+        totalDroppedConnections: 30
       },
       {
         id: 'abc2',
-        name: 'node2'
+        name: 'node2',
+        running: true,
+        totalSuccessfulConnections: 16,
+        totalFailedConnections: 23,
+        totalDroppedConnections: 14
       },
       {
         id: 'abc2',
-        name: 'node3'
+        name: 'node3',
+        running: false,
+        totalSuccessfulConnections: 18,
+        totalFailedConnections: 9,
+        totalDroppedConnections: 7
       }
     ] as Node[];
 
@@ -57,8 +69,16 @@ describe('NodesListComponent', () => {
   it('should have correct icon on each node', () => {
     const icons = element.querySelectorAll('mat-list mat-list-item mat-icon');
 
-    expect(icons[0].textContent).toContain('computer');
-    expect(icons[1].textContent).toContain('computer');
-    expect(icons[2].textContent).toContain('computer');
+    expect(icons[0].textContent).toContain('done');
+    expect(icons[1].textContent).toContain('timer');
+    expect(icons[2].textContent).toContain('done');
+  });
+
+  it('should show connection statistics for each node', () => {
+    const stats = element.querySelectorAll('mat-list mat-list-item p');
+
+    expect(stats[0].textContent).toContain('Successful (10) Failed (20) Dropped (30)');
+    expect(stats[1].textContent).toContain('Waiting for results');
+    expect(stats[2].textContent).toContain('Successful (18) Failed (9) Dropped (7)');
   });
 });
