@@ -1,3 +1,8 @@
 <mat-list>
-  <mat-list-item *ngFor="let task of tasks" [routerLink]="['./', task.id]">{{task.name}}</mat-list-item>
+  <h3 mat-subheader>Tasks</h3>
+
+  <mat-list-item *ngFor="let task of tasks" [routerLink]="['./', task.id]">
+    <mat-icon mat-list-icon>device_hub</mat-icon>
+    <h4 mat-line>{{task.name}}</h4>
+  </mat-list-item>
 </mat-list>

@@ -30,15 +30,27 @@ describe('TasksListComponent', () => {
     fixture.detectChanges();
   });
 
+  it('should have correct header', () => {
+    expect(element.querySelector('mat-list h3').textContent).toContain('Tasks');
+  });
+
   it('should have a list of tasks', () => {
     expect(element.querySelectorAll('mat-list mat-list-item').length).toBe(3);
   });
 
   it('should have correct name for each task', () => {
-    const tasks = element.querySelectorAll('mat-list mat-list-item');
+    const tasks = element.querySelectorAll('mat-list mat-list-item h4');
 
     expect(tasks[0].textContent).toContain('task1');
     expect(tasks[1].textContent).toContain('task2');
     expect(tasks[2].textContent).toContain('task3');
+  });
+
+  it('should have icons on each task', () => {
+    const icons = element.querySelectorAll('mat-list mat-list-item mat-icon');
+
+    expect(icons[0].textContent).toContain('device_hub');
+    expect(icons[1].textContent).toContain('device_hub');
+    expect(icons[2].textContent).toContain('device_hub');
   });
 });

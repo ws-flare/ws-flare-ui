@@ -38,8 +38,12 @@ describe('NodesListComponent', () => {
     fixture.detectChanges();
   });
 
+  it('should have correct header', () => {
+    expect(element.querySelector('mat-list h3').textContent).toContain('Nodes');
+  });
+
   it('should have a list of nodes', () => {
-    expect(element.querySelectorAll('mat-list mat-list-item').length).toBe(3);
+    expect(element.querySelectorAll('mat-list mat-list-item h4').length).toBe(3);
   });
 
   it('should have correct name of each node', () => {
@@ -48,5 +52,13 @@ describe('NodesListComponent', () => {
     expect(nodes[0].textContent).toContain('node1');
     expect(nodes[1].textContent).toContain('node2');
     expect(nodes[2].textContent).toContain('node3');
+  });
+
+  it('should have correct icon on each node', () => {
+    const icons = element.querySelectorAll('mat-list mat-list-item mat-icon');
+
+    expect(icons[0].textContent).toContain('computer');
+    expect(icons[1].textContent).toContain('computer');
+    expect(icons[2].textContent).toContain('computer');
   });
 });

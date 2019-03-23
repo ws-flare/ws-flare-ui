@@ -38,15 +38,27 @@ describe('ProjectsListComponent', () => {
     fixture.detectChanges();
   });
 
+  it('should have correct header', () => {
+    expect(element.querySelector('mat-list h3').textContent).toContain('Projects');
+  });
+
   it('should have a list of projects', () => {
     expect(element.querySelectorAll('mat-list mat-list-item').length).toBe(3);
   });
 
   it('should have correct name for each project', () => {
-    const projects = element.querySelectorAll('mat-list mat-list-item');
+    const projects = element.querySelectorAll('mat-list mat-list-item h4');
 
     expect(projects[0].textContent).toContain('project1');
     expect(projects[1].textContent).toContain('project2');
     expect(projects[2].textContent).toContain('project3');
+  });
+
+  it('should have icons on each project', () => {
+    const icons = element.querySelectorAll('mat-list mat-list-item mat-icon');
+
+    expect(icons[0].textContent).toContain('folder');
+    expect(icons[1].textContent).toContain('folder');
+    expect(icons[2].textContent).toContain('folder');
   });
 });

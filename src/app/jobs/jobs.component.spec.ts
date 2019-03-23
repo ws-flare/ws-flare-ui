@@ -54,7 +54,7 @@ describe('JobsComponent', () => {
 
   it('should dispatch an action to start a job when a user clicks the start job button', () => {
     element.querySelector('button#start-job').click();
-    
+
     expect(Store.prototype.dispatch).toHaveBeenCalledWith(new actions.StartJob('abc123'));
   });
 });

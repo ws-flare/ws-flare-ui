@@ -1,3 +1,13 @@
 <mat-list>
-  <mat-list-item *ngFor="let job of jobs" [routerLink]="['./', job.id]">{{job.createdAt}}</mat-list-item>
+
+  <h3 mat-subheader>Jobs</h3>
+
+  <mat-list-item *ngFor="let job of jobs" [routerLink]="['./', job.id]">
+
+    <mat-icon mat-list-icon *ngIf="job.isRunning">timer</mat-icon>
+    <mat-icon mat-list-icon *ngIf="!job.isRunning && job.passed">done</mat-icon>
+    <mat-icon mat-list-icon *ngIf="!job.isRunning && !job.passed">error</mat-icon>
+
+    <h4 mat-line>{{job.createdAt}}</h4>
+  </mat-list-item>
 </mat-list>

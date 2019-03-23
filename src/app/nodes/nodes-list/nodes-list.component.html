@@ -1,3 +1,8 @@
 <mat-list>
-  <mat-list-item *ngFor="let node of nodes">{{node.name}}</mat-list-item>
+  <h3 mat-subheader>Nodes</h3>
+
+  <mat-list-item *ngFor="let node of nodes">
+    <mat-icon mat-list-icon>computer</mat-icon>
+    <h4 mat-line>{{node.name}}</h4>
+  </mat-list-item>
 </mat-list>
