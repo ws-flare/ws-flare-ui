@@ -1,3 +1,3 @@
 <mat-list>
-  <mat-list-item *ngFor="let job of jobs">{{job.createdAt}}</mat-list-item>
+  <mat-list-item *ngFor="let job of jobs" [routerLink]="['./', job.id]">{{job.createdAt}}</mat-list-item>
 </mat-list>

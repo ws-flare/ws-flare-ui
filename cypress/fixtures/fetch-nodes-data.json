@@ -1,0 +1,39 @@
+{
+  "data": {
+    "nodes": [
+      {
+        "id": "id1",
+        "name": "node1",
+        "createdAt": "Today1",
+        "jobId": "job1",
+        "running": true,
+        "totalSuccessfulConnections": 0,
+        "totalFailedConnections": 0,
+        "totalDroppedConnections": 0,
+        "__typename": "node"
+      },
+      {
+        "id": "id2",
+        "name": "mode2",
+        "createdAt": "Today2",
+        "jobId": "job1",
+        "running": true,
+        "totalSuccessfulConnections": 0,
+        "totalFailedConnections": 0,
+        "totalDroppedConnections": 0,
+        "__typename": "node"
+      },
+      {
+        "id": "id3",
+        "name": "node3",
+        "createdAt": "Today3",
+        "jobId": "job1",
+        "running": false,
+        "totalSuccessfulConnections": 1000,
+        "totalFailedConnections": 100,
+        "totalDroppedConnections": 17,
+        "__typename": "node"
+      }
+    ]
+  }
+}

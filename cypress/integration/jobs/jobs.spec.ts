@@ -1,4 +1,4 @@
-import { jobsListLength, navigateToJobs } from '../../support/jobs/jobs.po';
+import { jobListItems, jobsListLength, navigateToJobs } from '../../support/jobs/jobs.po';
 
 describe('Jobs', () => {
 
@@ -16,6 +16,13 @@ describe('Jobs', () => {
 
   it('should display a list of jobs', () => {
     jobsListLength().should('eq', 3);
+  });
+
+
+  it('should be able to click on a job', () => {
+    jobListItems().eq(1).click();
+
+    cy.url().should('contain', '/projects/project1/task1/id2');
   });
 
 });
