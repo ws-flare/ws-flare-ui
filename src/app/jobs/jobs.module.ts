@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { JobsComponent } from './jobs.component';
 import { RouterModule, Routes } from '@angular/router';
 import { JobsListComponent } from './jobs-list/jobs-list.component';
-import { MatButtonModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatIconModule, MatListModule } from '@angular/material';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './jobs.reducer';
 import { EffectsModule } from '@ngrx/effects';
@@ -27,7 +27,8 @@ const routes: Routes = [
     // Material
     MatListModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
   ]
 })
 export class JobsModule {

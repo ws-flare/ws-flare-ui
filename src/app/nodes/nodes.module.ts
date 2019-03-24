@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { NodesComponent } from './nodes.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NodesListComponent } from './nodes-list/nodes-list.component';
-import { MatButtonModule, MatDialogModule, MatIconModule, MatInputModule, MatListModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatDialogModule, MatIconModule, MatInputModule, MatListModule } from '@angular/material';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './nodes.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { NodesEffects } from './nodes.effects';
+import { SummaryCardComponent } from './summary-card/summary-card.component';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 const routes: Routes = [
   {
@@ -17,19 +19,21 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [NodesComponent, NodesListComponent],
+  declarations: [NodesComponent, NodesListComponent, SummaryCardComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('nodes', reducer),
     EffectsModule.forFeature([NodesEffects]),
+    HighchartsChartModule,
 
     // Material
     MatListModule,
     MatDialogModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
   ]
 })
 export class NodesModule {

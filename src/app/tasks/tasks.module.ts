@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TasksComponent } from './tasks.component';
 import { RouterModule, Routes } from '@angular/router';
 import { TasksListComponent } from './tasks-list/tasks-list.component';
-import { MatButtonModule, MatDialogModule, MatIconModule, MatInputModule, MatListModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatDialogModule, MatIconModule, MatInputModule, MatListModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './tasks.reducer';
@@ -33,7 +33,8 @@ const routes: Routes = [
     MatDialogModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
   ],
   entryComponents: [
     CreateTaskModalComponent

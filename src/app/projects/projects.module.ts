@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProjectsComponent } from './projects.component';
 import { ProjectsListComponent } from './projects-list/projects-list.component';
-import { MatButtonModule, MatDialogModule, MatInputModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatButtonModule, MatDialogModule, MatInputModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './projects.reducer';
 import { EffectsModule } from '@ngrx/effects';
@@ -33,7 +33,8 @@ const routes: Routes = [
     MatDialogModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
   ],
   entryComponents: [
     CreateProjectModalComponent

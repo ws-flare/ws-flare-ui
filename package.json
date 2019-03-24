@@ -48,6 +48,8 @@
     "core-js": "^2.5.4",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
+    "highcharts": "^7.0.3",
+    "highcharts-angular": "^2.4.0",
     "monaco-editor": "^0.15.6",
     "ngrx-store-localstorage": "^5.1.0",
     "ngrx-store-logger": "^0.2.2",

@@ -44,7 +44,12 @@ describe('NodesComponent', () => {
     expect(element.querySelector('app-nodes-list')).not.toBeNull();
   });
 
+  it('should have a summary of the results', () => {
+    expect(element.querySelector('app-summary-card')).not.toBeNull();
+  });
+
   it('should dispatch an action to fetch data', () => {
     expect(Store.prototype.dispatch).toHaveBeenCalledWith(new actions.FetchData('abc123'));
   });
+
 });
