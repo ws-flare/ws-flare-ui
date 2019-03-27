@@ -23,7 +23,13 @@ export class CreateTaskModalComponent implements OnInit {
       name: [null, [Validators.required]],
       uri: [null, [Validators.required]],
       totalSimulatedUsers: [1000, [Validators.required]],
-      runTime: [30, [Validators.required]]
+      runTime: [30, [Validators.required]],
+      cfApi: [null, [Validators.required]],
+      cfUser: [null, [Validators.required]],
+      cfPass: [null, [Validators.required]],
+      cfOrg: [null, [Validators.required]],
+      cfSpace: [null, [Validators.required]],
+      cfApps: [null, [Validators.required]],
     });
   }
 

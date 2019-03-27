@@ -6,8 +6,6 @@ import * as appActions from '../../app.actions';
 import * as actions from '../tasks.actions';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { of } from 'rxjs';
 import { MAT_DIALOG_DATA } from '@angular/material';
 
 jest.mock('@ngrx/store');
@@ -62,6 +60,30 @@ describe('CreateTaskModalComponent', () => {
     expect(element.querySelector('input#runTime')).not.toBeNull();
   });
 
+  it('should have an input for cf api', () => {
+    expect(element.querySelector('input#cfApi')).not.toBeNull();
+  });
+
+  it('should have an input for cf user', () => {
+    expect(element.querySelector('input#cfUser')).not.toBeNull();
+  });
+
+  it('should have an input for cf pass', () => {
+    expect(element.querySelector('input#cfPass')).not.toBeNull();
+  });
+
+  it('should have an input for cf org', () => {
+    expect(element.querySelector('input#cfOrg')).not.toBeNull();
+  });
+
+  it('should have an input for cf space', () => {
+    expect(element.querySelector('input#cfSpace')).not.toBeNull();
+  });
+
+  it('should have an input for cf apps', () => {
+    expect(element.querySelector('input#cfApps')).not.toBeNull();
+  });
+
   it('should have a cancel button', () => {
     expect(element.querySelectorAll('button')[0].textContent).toContain('Cancel');
   });
@@ -81,6 +103,12 @@ describe('CreateTaskModalComponent', () => {
     component.form.controls['uri'].setValue('ws://site.com');
     component.form.controls['totalSimulatedUsers'].setValue(20);
     component.form.controls['runTime'].setValue(100);
+    component.form.controls['cfApi'].setValue('http://cf.com');
+    component.form.controls['cfUser'].setValue('user1');
+    component.form.controls['cfPass'].setValue('pass1');
+    component.form.controls['cfOrg'].setValue('org1');
+    component.form.controls['cfSpace'].setValue('space1');
+    component.form.controls['cfApps'].setValue('app1,app2,app3');
 
     element.querySelectorAll('button')[1].click();
 
@@ -89,7 +117,13 @@ describe('CreateTaskModalComponent', () => {
       name: 'task1',
       uri: 'ws://site.com',
       totalSimulatedUsers: 20,
-      runTime: 100
+      runTime: 100,
+      cfApi: 'http://cf.com',
+      cfUser: 'user1',
+      cfPass: 'pass1',
+      cfOrg: 'org1',
+      cfSpace: 'space1',
+      cfApps: 'app1,app2,app3'
     }));
   });
 });
