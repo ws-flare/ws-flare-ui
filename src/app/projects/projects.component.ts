@@ -28,7 +28,7 @@ export class ProjectsComponent implements OnInit {
   }
 
   openCreateProjectDialog() {
-    this.dialog.open(CreateProjectModalComponent, {width: '250px'});
+    this.dialog.open(CreateProjectModalComponent, {width: '500px'});
   }
 
 }

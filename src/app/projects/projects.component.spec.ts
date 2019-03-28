@@ -54,6 +54,6 @@ describe('ProjectsComponent', () => {
   it('should open create project dialog when user clicks the create project button', () => {
     element.querySelector('button#create-project').click();
 
-    expect(MatDialog.prototype.open).toHaveBeenCalledWith(CreateProjectModalComponent, {width: '250px'});
+    expect(MatDialog.prototype.open).toHaveBeenCalledWith(CreateProjectModalComponent, {width: '500px'});
   });
 });

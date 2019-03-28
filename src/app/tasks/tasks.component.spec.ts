@@ -62,6 +62,6 @@ describe('TasksComponent', () => {
   it('should open create task dialog when user clicks the create project button', () => {
     element.querySelector('button#create-task').click();
 
-    expect(MatDialog.prototype.open).toHaveBeenCalledWith(CreateTaskModalComponent, {width: '250px', data: 'abc123'});
+    expect(MatDialog.prototype.open).toHaveBeenCalledWith(CreateTaskModalComponent, {width: '500px', data: 'abc123'});
   });
 });

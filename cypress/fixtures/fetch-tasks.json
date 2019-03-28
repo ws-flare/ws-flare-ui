@@ -9,6 +9,12 @@
         "uri": "ws://ws1.com",
         "runTime": "30",
         "totalSimulatedUsers": 100,
+        "cfApi": "http://cf.com",
+        "cfUser": "user1",
+        "cfPass": "pass1",
+        "cfOrg": "org1",
+        "cfSpace": "space1",
+        "cfApps": "app1,app2,app3",
         "__typename": "task"
       },
       {
@@ -19,6 +25,12 @@
         "uri": "ws://ws2.com",
         "runTime": "40",
         "totalSimulatedUsers": 200,
+        "cfApi": "http://cf.com",
+        "cfUser": "user1",
+        "cfPass": "pass1",
+        "cfOrg": "org1",
+        "cfSpace": "space1",
+        "cfApps": "app1,app2,app3",
         "__typename": "task"
       },
       {
@@ -29,6 +41,12 @@
         "uri": "ws://ws3.com",
         "runTime": "50",
         "totalSimulatedUsers": 300,
+        "cfApi": "http://cf.com",
+        "cfUser": "user1",
+        "cfPass": "pass1",
+        "cfOrg": "org1",
+        "cfSpace": "space1",
+        "cfApps": "app1,app2,app3",
         "__typename": "task"
       }
     ]
