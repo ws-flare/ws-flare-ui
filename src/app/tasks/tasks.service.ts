@@ -14,13 +14,21 @@ const tasksQuery = gql`
       uri
       totalSimulatedUsers
       runTime
+      cfApi
+      cfUser
+      cfPass
+      cfOrg
+      cfSpace
+      cfApps
     }
   }
 `;
 
 const createTaskMutation = gql`
-  mutation createTask($projectId: String! $name: String! $uri: String! $totalSimulatedUsers: Int! $runTime: Int!) {
-    createTask(projectId: $projectId name: $name uri: $uri totalSimulatedUsers: $totalSimulatedUsers runTime: $runTime) {
+  mutation createTask($projectId: String! $name: String! $uri: String! $totalSimulatedUsers: Int! $runTime: Int! $cfApi: String!
+  $cfUser: String! $cfPass: String! $cfOrg: String! $cfSpace: String! $cfApps: String!) {
+    createTask(projectId: $projectId name: $name uri: $uri totalSimulatedUsers: $totalSimulatedUsers runTime: $runTime cfApi: $cfApi
+    cfUser: $cfUser cfPass: $cfPass cfOrg: $cfOrg cfSpace: $cfSpace cfApps: $cfApps) {
       id
       userId
       projectId
@@ -28,6 +36,12 @@ const createTaskMutation = gql`
       uri
       totalSimulatedUsers
       runTime
+      cfApi
+      cfUser
+      cfPass
+      cfOrg
+      cfSpace
+      cfApps
     }
   }
 `;
@@ -51,7 +65,13 @@ export class TasksService {
         name: task.name,
         uri: task.uri,
         totalSimulatedUsers: task.totalSimulatedUsers,
-        runTime: task.runTime
+        runTime: task.runTime,
+        cfApi: task.cfApi,
+        cfUser: task.cfUser,
+        cfPass: task.cfPass,
+        cfOrg: task.cfOrg,
+        cfSpace: task.cfSpace,
+        cfApps: task.cfApps
       }
     });
   }
