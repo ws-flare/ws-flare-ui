@@ -7,6 +7,7 @@ import { AppState } from '../app.state';
 import { NodesService } from './nodes.service';
 import { NodesEffects } from './nodes.effects';
 import { Node } from './node.model';
+import { Usage } from './usage.model';
 
 jest.mock('./nodes.service');
 jest.mock('@angular/router');
@@ -24,11 +25,21 @@ describe('User Effects', () => {
   describe('get data', () => {
 
     it('should work', () => {
-      NodesService.prototype.getData = jest.fn().mockImplementationOnce(() => of({data: {nodes: [{}, {}, {}]}}));
+      NodesService.prototype.getData = jest.fn().mockImplementationOnce(() => of({
+        data: {
+          job: {
+            nodes: [{}, {}, {}],
+            usages: [{}, {}]
+          }
+        }
+      }));
 
       const source = cold('a', {a: new actions.FetchData('abc123')});
 
-      const expected = cold('a', {a: new actions.UpdateNodes([{}, {}, {}] as Node[])});
+      const expected = cold('(ab)', {
+        a: new actions.UpdateNodes([{}, {}, {}] as Node[]),
+        b: new actions.UpdateUsages([{}, {}] as Usage[])
+      });
 
       const effects = new NodesEffects(new Actions(source), store, new NodesService(null));
 

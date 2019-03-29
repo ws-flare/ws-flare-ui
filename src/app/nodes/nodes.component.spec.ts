@@ -13,6 +13,7 @@ describe('NodesComponent', () => {
   let component: NodesComponent;
   let fixture: ComponentFixture<NodesComponent>;
   let element;
+  let store;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -21,7 +22,15 @@ describe('NodesComponent', () => {
       providers: [
         {
           provide: Store,
-          useValue: new Store(null, null, null)
+          useValue: new Store(of({
+            nodes: {
+              usages: {
+                abc1: [],
+                abc2: [],
+                abc3: [],
+              }
+            }
+          }), null, null)
         },
         {
           provide: ActivatedRoute,
@@ -35,8 +44,10 @@ describe('NodesComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(NodesComponent);
+    store = TestBed.get(Store);
     component = fixture.componentInstance;
     element = fixture.nativeElement;
+
     fixture.detectChanges();
   });
 
@@ -52,4 +63,7 @@ describe('NodesComponent', () => {
     expect(Store.prototype.dispatch).toHaveBeenCalledWith(new actions.FetchData('abc123'));
   });
 
+  it('should show app memory usage', () => {
+    expect(element.querySelectorAll('app-cf-app-summary').length).toBe(2);
+  });
 });

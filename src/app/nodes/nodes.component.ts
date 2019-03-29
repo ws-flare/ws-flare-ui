@@ -6,6 +6,7 @@ import { Node } from './node.model';
 import { map } from 'rxjs/operators';
 import * as actions from './nodes.actions';
 import { ActivatedRoute } from '@angular/router';
+import { UsagesList } from './nodes.state';
 
 @Component({
   selector: 'app-nodes',
@@ -15,12 +16,19 @@ import { ActivatedRoute } from '@angular/router';
 export class NodesComponent implements OnInit {
 
   nodes$: Observable<Node[]>;
+  usages$: Observable<UsagesList>;
 
   constructor(private store: Store<ModuleState>, private route: ActivatedRoute) {
     this.nodes$ = store.pipe(map(state => state.nodes.nodes));
+    this.usages$ = store.pipe(map(state => state.nodes.usages));
   }
 
   ngOnInit() {
+
+    this.usages$.subscribe((usages) => {
+      console.log(usages);
+    });
+
     this.route.params.subscribe(({jobId}) => this.store.dispatch(new actions.FetchData(jobId)));
   }
 

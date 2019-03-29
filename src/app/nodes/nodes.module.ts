@@ -10,6 +10,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { NodesEffects } from './nodes.effects';
 import { SummaryCardComponent } from './summary-card/summary-card.component';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { CfAppSummaryComponent } from './cf-app-summary/cf-app-summary.component';
 
 const routes: Routes = [
   {
@@ -19,7 +20,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [NodesComponent, NodesListComponent, SummaryCardComponent],
+  declarations: [NodesComponent, NodesListComponent, SummaryCardComponent, CfAppSummaryComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

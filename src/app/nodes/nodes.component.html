@@ -1,3 +1,5 @@
 <app-summary-card></app-summary-card>
 
 <app-nodes-list [nodes]="nodes$ | async"></app-nodes-list>
+
+<app-cf-app-summary *ngFor="let usages of (usages$ | async)| keyvalue" [usages]="usages.value"></app-cf-app-summary>

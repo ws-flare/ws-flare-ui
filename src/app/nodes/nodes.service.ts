@@ -1,20 +1,37 @@
 import { Injectable } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
-import { Node } from './node.model';
 import { FetchResult } from 'apollo-link';
+import { Job } from '../jobs/job.model';
 
 const dataQuery = gql`
-  query nodes($jobId: String!) {
-    nodes(jobId: $jobId) {
-      id
-      createdAt
-      jobId
-      name
-      running
-      totalSuccessfulConnections
-      totalFailedConnections
-      totalDroppedConnections
+  query job($jobId: String!) {
+    job(jobId: $jobId) {
+      nodes {
+        id
+        createdAt
+        jobId
+        name
+        running
+        totalSuccessfulConnections
+        totalFailedConnections
+        totalDroppedConnections
+      }
+      usages {
+        id
+        jobId
+        appId
+        mem
+        cpu
+        disk
+        mem_quota
+        disk_quota
+        instance
+        time
+        state
+        uptime
+        name
+      }
     }
   }
 `;
@@ -28,6 +45,6 @@ export class NodesService {
   }
 
   getData(jobId: string) {
-    return this.apollo.query<FetchResult<{ nodes: Node[] }>>({query: dataQuery, variables: {jobId}});
+    return this.apollo.query<FetchResult<{ job: Job }>>({query: dataQuery, variables: {jobId}});
   }
 }

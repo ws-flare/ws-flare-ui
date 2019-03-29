@@ -9,13 +9,13 @@ jest.mock('apollo-angular');
 
 describe('NodesService', () => {
 
-  it('should get get data for nodes page', async(() => {
-    Apollo.prototype.query = jest.fn().mockImplementationOnce(() => of({nodes: [{}, {}, {}] as Node[]}));
+  it('should get data for nodes page', async(() => {
+    Apollo.prototype.query = jest.fn().mockImplementationOnce(() => of({job: {nodes: [{}, {}, {}] as Node[]}}));
 
     const service = new NodesService(new Apollo(null, null));
 
     service.getData('abc123').subscribe(response => {
-      expect(response).toEqual({nodes: [{}, {}, {}] as Node[]});
+      expect(response).toEqual({job: {nodes: [{}, {}, {}] as Node[]}});
     });
   }));
 });
