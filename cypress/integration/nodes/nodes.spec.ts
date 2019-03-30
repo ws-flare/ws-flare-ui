@@ -16,7 +16,7 @@ describe('Nodes', () => {
   });
 
   it('should display a list of nodes', () => {
-    nodesListLength().should('eq', 3);
+    nodesListLength().should('eq', 5);
   });
 
 });

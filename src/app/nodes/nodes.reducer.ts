@@ -12,6 +12,11 @@ export function reducer(state: NodesState = nodesState, action: NodesActions): N
       return {...state, isFetchingData: false, nodes: action.nodes};
     case actions.UPDATE_USAGES:
       const usages = {};
+
+      action.usages.sort((a, b) => {
+        return Number(new Date(b.time)) - Number(new Date(a.time));
+      });
+
       action.usages.forEach(usage => {
         usages[usage.appId] = usages[usage.appId] ? [...usages[usage.appId], usage] : [usage];
       });
