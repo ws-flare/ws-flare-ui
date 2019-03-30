@@ -2,12 +2,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NodesComponent } from './nodes.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { ActionsSubject, Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import * as actions from './nodes.actions';
-
-jest.mock('@ngrx/store');
 
 describe('NodesComponent', () => {
   let component: NodesComponent;
@@ -27,10 +25,11 @@ describe('NodesComponent', () => {
               usages: {
                 abc1: [],
                 abc2: [],
-                abc3: [],
-              }
+                abc3: []
+              },
+              nodes: []
             }
-          }), null, null)
+          }), new ActionsSubject(), null)
         },
         {
           provide: ActivatedRoute,
@@ -48,6 +47,8 @@ describe('NodesComponent', () => {
     component = fixture.componentInstance;
     element = fixture.nativeElement;
 
+    spyOn(store, 'dispatch');
+
     fixture.detectChanges();
   });
 
@@ -60,10 +61,10 @@ describe('NodesComponent', () => {
   });
 
   it('should dispatch an action to fetch data', () => {
-    expect(Store.prototype.dispatch).toHaveBeenCalledWith(new actions.FetchData('abc123'));
+    expect(store.dispatch).toHaveBeenCalledWith(new actions.FetchData('abc123'));
   });
 
   it('should show app memory usage', () => {
-    expect(element.querySelectorAll('app-cf-app-summary').length).toBe(2);
+    expect(element.querySelectorAll('app-cf-app-summary').length).toBe(3);
   });
 });

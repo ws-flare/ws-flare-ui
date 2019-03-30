@@ -36,7 +36,10 @@ describe('Nodes Reducer', () => {
 
   it('should update and sort usage statistics', () => {
     const state: NodesState = {...nodesState, usages: {}};
-    const action = new actions.UpdateUsages([{appId: 'abc2'}, {appId: 'abc1'}, {appId: 'abc3'}, {appId: 'abc3'}] as Usage[]);
+    const action = new actions.UpdateUsages([{appId: 'abc2'}, {appId: 'abc1'}, {appId: 'abc3', mem: 1024}, {
+      appId: 'abc3',
+      mem: 2056
+    }] as Usage[]);
 
     expect(reducer(state, action)).toEqual({
       ...state,
@@ -48,8 +51,8 @@ describe('Nodes Reducer', () => {
           {appId: 'abc2'}
         ],
         abc3: [
-          {appId: 'abc3'},
-          {appId: 'abc3'}
+          {appId: 'abc3', mem: 1024},
+          {appId: 'abc3', mem: 2056}
         ]
       }
     });

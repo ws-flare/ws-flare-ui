@@ -24,11 +24,6 @@ export class NodesComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.usages$.subscribe((usages) => {
-      console.log(usages);
-    });
-
     this.route.params.subscribe(({jobId}) => this.store.dispatch(new actions.FetchData(jobId)));
   }
 
