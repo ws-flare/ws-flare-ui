@@ -21,8 +21,6 @@ import {HighchartsChartModule} from 'highcharts-angular';
 import {CfAppSummaryComponent} from './cf-app-summary/cf-app-summary.component';
 import * as theme from 'highcharts/themes/dark-unica';
 
-theme(Highcharts);
-
 const routes: Routes = [
   {
     path: '',
@@ -49,4 +47,9 @@ const routes: Routes = [
   ]
 })
 export class NodesModule {
+
+  constructor() {
+    theme(Highcharts);
+  }
+
 }
