@@ -1,13 +1,13 @@
 import * as actions from './nodes.actions';
-import { cold } from 'jest-marbles';
-import { Actions } from '@ngrx/effects';
-import { of, throwError } from 'rxjs';
-import { Store } from '@ngrx/store';
-import { AppState } from '../app.state';
-import { NodesService } from './nodes.service';
-import { NodesEffects } from './nodes.effects';
-import { Node } from './node.model';
-import { Usage } from './usage.model';
+import {cold} from 'jest-marbles';
+import {Actions} from '@ngrx/effects';
+import {of, throwError} from 'rxjs';
+import {Store} from '@ngrx/store';
+import {AppState} from '../app.state';
+import {NodesService} from './nodes.service';
+import {NodesEffects} from './nodes.effects';
+import {Node} from './node.model';
+import {Usage} from './usage.model';
 
 jest.mock('./nodes.service');
 jest.mock('@angular/router');
@@ -25,13 +25,15 @@ describe('User Effects', () => {
   describe('get data', () => {
 
     it('should work', () => {
-      NodesService.prototype.getData = jest.fn().mockImplementationOnce(() => of({
-        data: {
-          job: {
-            nodes: [{}, {}, {}],
-            usages: [{}, {}]
+      NodesService.prototype.getData = jest.fn().mockImplementationOnce(() => ({
+        valueChanges: of({
+          data: {
+            job: {
+              nodes: [{}, {}, {}],
+              usages: [{}, {}]
+            }
           }
-        }
+        })
       }));
 
       const source = cold('a', {a: new actions.FetchData('abc123')});
@@ -47,7 +49,7 @@ describe('User Effects', () => {
     });
 
     it('should handle errors', () => {
-      NodesService.prototype.getData = jest.fn().mockImplementationOnce(() => of(throwError('ERROR!!!')));
+      NodesService.prototype.getData = jest.fn().mockImplementationOnce(() => ({valueChanges: of(throwError('ERROR!!!'))}));
 
       const source = cold('a', {a: new actions.FetchData('abc123')});
 

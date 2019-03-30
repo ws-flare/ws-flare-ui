@@ -45,6 +45,6 @@ export class NodesService {
   }
 
   getData(jobId: string) {
-    return this.apollo.query<FetchResult<{ job: Job }>>({query: dataQuery, variables: {jobId}});
+    return this.apollo.watchQuery<FetchResult<{ job: Job }>>({query: dataQuery, variables: {jobId}});
   }
 }

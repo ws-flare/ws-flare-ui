@@ -72,6 +72,9 @@ export class CoreModule {
       defaultOptions: {
         query: {
           fetchPolicy: 'network-only'
+        },
+        watchQuery: {
+          pollInterval: 10000
         }
       }
     });
