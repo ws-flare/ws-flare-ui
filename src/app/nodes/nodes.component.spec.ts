@@ -1,10 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { NodesComponent } from './nodes.component';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { ActionsSubject, Store } from '@ngrx/store';
-import { ActivatedRoute } from '@angular/router';
-import { of } from 'rxjs';
+import {NodesComponent} from './nodes.component';
+import {NO_ERRORS_SCHEMA} from '@angular/core';
+import {ActionsSubject, Store} from '@ngrx/store';
+import {ActivatedRoute} from '@angular/router';
+import {of} from 'rxjs';
 import * as actions from './nodes.actions';
 
 describe('NodesComponent', () => {
@@ -66,5 +66,11 @@ describe('NodesComponent', () => {
 
   it('should show app memory usage', () => {
     expect(element.querySelectorAll('app-cf-app-summary').length).toBe(3);
+  });
+
+  it('should dispatch an action to unsubscribe when user navigates away from page', () => {
+    component.ngOnDestroy();
+
+    expect(store.dispatch).toHaveBeenCalledWith(new actions.UnsubscribeFromUpdates());
   });
 });

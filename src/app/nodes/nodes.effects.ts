@@ -4,7 +4,7 @@ import {AppState} from '../app.state';
 import {Store} from '@ngrx/store';
 import {NodesService} from './nodes.service';
 import * as actions from './nodes.actions';
-import {catchError, mergeMap} from 'rxjs/operators';
+import {catchError, mergeMap, takeUntil} from 'rxjs/operators';
 import {of} from 'rxjs';
 
 @Injectable()
@@ -18,6 +18,7 @@ export class NodesEffects {
           new actions.UpdateNodes(res.data.job.nodes),
           new actions.UpdateUsages(res.data.job.usages)
         ]),
+        takeUntil(this.actions$.pipe(ofType(actions.UNSUBSCRIBE_FROM_UPDATES))),
         catchError(() => of(new actions.FetchDataFailed()))
       )
     )

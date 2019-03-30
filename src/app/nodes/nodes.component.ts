@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { ModuleState } from './module.state';
-import { Observable } from 'rxjs';
-import { Node } from './node.model';
-import { map } from 'rxjs/operators';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {ModuleState} from './module.state';
+import {Observable} from 'rxjs';
+import {Node} from './node.model';
+import {map} from 'rxjs/operators';
 import * as actions from './nodes.actions';
-import { ActivatedRoute } from '@angular/router';
-import { UsagesList } from './nodes.state';
+import {ActivatedRoute} from '@angular/router';
+import {UsagesList} from './nodes.state';
 
 @Component({
   selector: 'app-nodes',
   templateUrl: './nodes.component.html',
   styleUrls: ['./nodes.component.scss']
 })
-export class NodesComponent implements OnInit {
+export class NodesComponent implements OnInit, OnDestroy {
 
   nodes$: Observable<Node[]>;
   usages$: Observable<UsagesList>;
@@ -27,4 +27,7 @@ export class NodesComponent implements OnInit {
     this.route.params.subscribe(({jobId}) => this.store.dispatch(new actions.FetchData(jobId)));
   }
 
+  ngOnDestroy() {
+    this.store.dispatch(new actions.UnsubscribeFromUpdates());
+  }
 }
