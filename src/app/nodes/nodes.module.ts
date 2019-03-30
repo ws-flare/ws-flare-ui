@@ -1,5 +1,5 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {Inject, NgModule, PLATFORM_ID} from '@angular/core';
+import {CommonModule, isPlatformBrowser} from '@angular/common';
 import {NodesComponent} from './nodes.component';
 import {RouterModule, Routes} from '@angular/router';
 import {NodesListComponent} from './nodes-list/nodes-list.component';
@@ -48,8 +48,10 @@ const routes: Routes = [
 })
 export class NodesModule {
 
-  constructor() {
-    theme(Highcharts);
+  constructor(@Inject(PLATFORM_ID) platformId) {
+    if (isPlatformBrowser(platformId)) {
+      theme(Highcharts);
+    }
   }
 
 }
