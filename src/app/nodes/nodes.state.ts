@@ -18,5 +18,5 @@ export interface UsagesList {
 }
 
 export interface AppInstance {
-  [key: string]: Usage[]
+  [key: string]: Usage[];
 }
