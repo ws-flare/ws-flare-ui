@@ -1,8 +1,8 @@
-import { nodesState, NodesState } from './nodes.state';
-import { reducer } from './nodes.reducer';
+import {nodesState, NodesState} from './nodes.state';
+import {reducer} from './nodes.reducer';
 import * as actions from './nodes.actions';
-import { Node } from './node.model';
-import { Usage } from './usage.model';
+import {Node} from './node.model';
+import {Usage} from './usage.model';
 
 describe('Nodes Reducer', () => {
 
@@ -36,24 +36,36 @@ describe('Nodes Reducer', () => {
 
   it('should update and sort usage statistics', () => {
     const state: NodesState = {...nodesState, usages: {}};
-    const action = new actions.UpdateUsages([{appId: 'abc2'}, {appId: 'abc1'}, {appId: 'abc3', mem: 1024}, {
-      appId: 'abc3',
-      mem: 2056
-    }] as Usage[]);
+    const action = new actions.UpdateUsages([
+      {appId: 'abc2', instance: 0},
+      {appId: 'abc1', instance: 0},
+      {appId: 'abc3', mem: 1024, instance: 0},
+      {appId: 'abc3', mem: 2056, instance: 1},
+      {appId: 'abc3', mem: 1000, instance: 0}
+    ] as Usage[]);
 
     expect(reducer(state, action)).toEqual({
       ...state,
       usages: {
-        abc1: [
-          {appId: 'abc1'}
-        ],
-        abc2: [
-          {appId: 'abc2'}
-        ],
-        abc3: [
-          {appId: 'abc3', mem: 1024},
-          {appId: 'abc3', mem: 2056}
-        ]
+        abc1: {
+          0: [
+            {appId: 'abc1', instance: 0}
+          ]
+        },
+        abc2: {
+          0: [
+            {appId: 'abc2', instance: 0}
+          ]
+        },
+        abc3: {
+          0: [
+            {appId: 'abc3', mem: 1024, instance: 0},
+            {appId: 'abc3', mem: 1000, instance: 0}
+          ],
+          1: [
+            {appId: 'abc3', mem: 2056, instance: 1}
+          ]
+        }
       }
     });
   });

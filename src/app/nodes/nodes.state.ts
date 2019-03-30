@@ -1,5 +1,5 @@
-import { Node } from './node.model';
-import { Usage } from './usage.model';
+import {Node} from './node.model';
+import {Usage} from './usage.model';
 
 export const nodesState: NodesState = {
   isFetchingData: false,
@@ -14,5 +14,9 @@ export interface NodesState {
 }
 
 export interface UsagesList {
-  [key: string]: Usage[];
+  [key: string]: AppInstance;
+}
+
+export interface AppInstance {
+  [key: string]: Usage[]
 }

@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Usage} from '../usage.model';
 import * as Highcharts from 'highcharts';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {filter} from 'rxjs/operators';
+import {AppInstance} from '../nodes.state';
 
 @Component({
   selector: 'app-cf-app-summary',
@@ -11,7 +11,7 @@ import {filter} from 'rxjs/operators';
 })
 export class CfAppSummaryComponent implements OnInit {
 
-  @Input() usages: Usage[];
+  @Input() instances: AppInstance;
 
   Highcharts = Highcharts;
   chartOptions: Highcharts.Options = {
@@ -34,12 +34,14 @@ export class CfAppSummaryComponent implements OnInit {
 
     this.chartObject$.subscribe(chart => {
 
-      chart.title.update({text: `${this.usages[0].name} memory usage`});
+      chart.title.update({text: `Memory`});
 
-      chart.addSeries({
-        type: 'line',
-        name: 'memory',
-        data: this.usages.map(usage => usage.mem / Math.pow(1024, 2))
+      Object.keys(this.instances).forEach(key => {
+        chart.addSeries({
+          type: 'line',
+          name: `Instance ${key}`,
+          data: this.instances[key].map(usage => usage.mem / Math.pow(1024, 2))
+        });
       });
     });
   }

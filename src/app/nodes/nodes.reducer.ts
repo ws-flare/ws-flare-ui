@@ -1,5 +1,5 @@
-import { nodesState, NodesState } from './nodes.state';
-import { NodesActions } from './nodes.actions';
+import {nodesState, NodesState} from './nodes.state';
+import {NodesActions} from './nodes.actions';
 import * as actions from './nodes.actions';
 
 export function reducer(state: NodesState = nodesState, action: NodesActions): NodesState {
@@ -18,7 +18,16 @@ export function reducer(state: NodesState = nodesState, action: NodesActions): N
       });
 
       action.usages.forEach(usage => {
-        usages[usage.appId] = usages[usage.appId] ? [...usages[usage.appId], usage] : [usage];
+        if (usages[usage.appId]) {
+          if (usages[usage.appId][usage.instance]) {
+            console.log(usages);
+            usages[usage.appId][usage.instance].push(usage);
+          } else {
+            usages[usage.appId][usage.instance] = [usage];
+          }
+        } else {
+          usages[usage.appId] = {[usage.instance]: [usage]};
+        }
       });
       return {...state, usages};
     default:
