@@ -3,7 +3,6 @@ import {Usage} from '../usage.model';
 import * as Highcharts from 'highcharts';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {filter} from 'rxjs/operators';
-import * as prettyBytes from 'pretty-bytes';
 
 @Component({
   selector: 'app-cf-app-summary',
@@ -40,7 +39,7 @@ export class CfAppSummaryComponent implements OnInit {
       chart.addSeries({
         type: 'line',
         name: 'memory',
-        data: this.usages.map(usage => usage.mem / Math.pow(1024,2))
+        data: this.usages.map(usage => usage.mem / Math.pow(1024, 2))
       });
     });
   }
