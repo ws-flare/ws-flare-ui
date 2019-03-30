@@ -14,7 +14,7 @@ export class CfAppSummaryComponent implements OnInit {
   @Input() instances: AppInstance;
 
   Highcharts = Highcharts;
-  chartOptions: Highcharts.Options = {
+  memoryChartOptions: Highcharts.Options = {
     chart: {
       zoomType: 'x'
     },
@@ -23,16 +23,31 @@ export class CfAppSummaryComponent implements OnInit {
     },
     series: []
   };
-  chartCallback = this.callback.bind(this);
+  cpuChartOptions: Highcharts.Options = {
+    chart: {
+      zoomType: 'x'
+    },
+    tooltip: {
+      pointFormat: '{series.name}: <b>{point.y:.0f} MB</b>'
+    },
+    series: []
+  };
+  memoryChartCallback = this.memoryCallback.bind(this);
+  cpuChartCallback = this.cpuCallback.bind(this);
 
-  private chartObject$: Observable<Highcharts.Chart>;
-  private chartObjectSubject: BehaviorSubject<Highcharts.Chart | null>;
+  private memoryChartObject$: Observable<Highcharts.Chart>;
+  private cpuChartObject$: Observable<Highcharts.Chart>;
+  private memoryChartObjectSubject: BehaviorSubject<Highcharts.Chart | null>;
+  private cpuChartObjectSubject: BehaviorSubject<Highcharts.Chart | null>;
 
   ngOnInit() {
-    this.chartObjectSubject = new BehaviorSubject(null);
-    this.chartObject$ = this.chartObjectSubject.asObservable().pipe(filter(chartObject => !!chartObject));
+    this.memoryChartObjectSubject = new BehaviorSubject(null);
+    this.cpuChartObjectSubject = new BehaviorSubject(null);
+    this.memoryChartObject$ = this.memoryChartObjectSubject.asObservable().pipe(filter(chartObject => !!chartObject));
+    this.cpuChartObject$ = this.cpuChartObjectSubject.asObservable().pipe(filter(chartObject => !!chartObject));
 
-    this.chartObject$.subscribe(chart => {
+    // Memory Chart
+    this.memoryChartObject$.subscribe(chart => {
 
       chart.title.update({text: `Memory`});
 
@@ -44,10 +59,28 @@ export class CfAppSummaryComponent implements OnInit {
         });
       });
     });
+
+    // CPU Chart
+    this.cpuChartObject$.subscribe(chart => {
+
+      chart.title.update({text: `CPU`});
+
+      Object.keys(this.instances).forEach(key => {
+        chart.addSeries({
+          type: 'line',
+          name: `Instance ${key}`,
+          data: this.instances[key].map(usage => usage.cpu * 100)
+        });
+      });
+    });
   }
 
-  private callback(chart: Highcharts.Chart) {
-    this.chartObjectSubject.next(chart);
+  private memoryCallback(chart: Highcharts.Chart) {
+    this.memoryChartObjectSubject.next(chart);
+  }
+
+  private cpuCallback(chart: Highcharts.Chart) {
+    this.cpuChartObjectSubject.next(chart);
   }
 
 }

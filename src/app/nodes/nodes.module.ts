@@ -7,7 +7,7 @@ import * as Highcharts from 'highcharts';
 import {
   MatButtonModule,
   MatCardModule,
-  MatDialogModule,
+  MatDialogModule, MatGridListModule,
   MatIconModule,
   MatInputModule,
   MatListModule
@@ -43,7 +43,8 @@ const routes: Routes = [
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatGridListModule
   ]
 })
 export class NodesModule {

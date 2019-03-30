@@ -20,7 +20,6 @@ export function reducer(state: NodesState = nodesState, action: NodesActions): N
       action.usages.forEach(usage => {
         if (usages[usage.appId]) {
           if (usages[usage.appId][usage.instance]) {
-            console.log(usages);
             usages[usage.appId][usage.instance].push(usage);
           } else {
             usages[usage.appId][usage.instance] = [usage];
