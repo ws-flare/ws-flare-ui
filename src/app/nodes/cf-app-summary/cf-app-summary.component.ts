@@ -28,7 +28,7 @@ export class CfAppSummaryComponent implements OnInit {
       zoomType: 'x'
     },
     tooltip: {
-      pointFormat: '{series.name}: <b>{point.y:.0f} MB</b>'
+      pointFormat: '{series.name}: <b>{point.y:.0f} %</b>'
     },
     series: []
   };
