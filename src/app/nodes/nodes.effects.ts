@@ -4,7 +4,7 @@ import { AppState } from '../app.state';
 import { Store } from '@ngrx/store';
 import { NodesService } from './nodes.service';
 import * as actions from './nodes.actions';
-import { catchError, mergeMap } from 'rxjs/operators';
+import { catchError, mergeMap, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 
 @Injectable()
@@ -14,7 +14,10 @@ export class NodesEffects {
     ofType<actions.FetchData>(actions.FETCH_DATA),
     mergeMap(({jobId}) =>
       this.service.getData(jobId).pipe(
-        mergeMap((res) => of(new actions.UpdateNodes(res.data.nodes))),
+        switchMap((res) => [
+          new actions.UpdateNodes(res.data.job.nodes),
+          new actions.UpdateUsages(res.data.job.usages)
+        ]),
         catchError(() => of(new actions.FetchDataFailed()))
       )
     )

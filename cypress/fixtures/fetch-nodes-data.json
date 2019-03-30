@@ -1,39 +1,108 @@
 {
   "data": {
-    "nodes": [
-      {
-        "id": "id1",
-        "name": "node1",
-        "createdAt": "Today1",
-        "jobId": "job1",
-        "running": true,
-        "totalSuccessfulConnections": 0,
-        "totalFailedConnections": 0,
-        "totalDroppedConnections": 0,
-        "__typename": "node"
-      },
-      {
-        "id": "id2",
-        "name": "mode2",
-        "createdAt": "Today2",
-        "jobId": "job1",
-        "running": true,
-        "totalSuccessfulConnections": 0,
-        "totalFailedConnections": 0,
-        "totalDroppedConnections": 0,
-        "__typename": "node"
-      },
-      {
-        "id": "id3",
-        "name": "node3",
-        "createdAt": "Today3",
-        "jobId": "job1",
-        "running": false,
-        "totalSuccessfulConnections": 1000,
-        "totalFailedConnections": 100,
-        "totalDroppedConnections": 17,
-        "__typename": "node"
-      }
-    ]
+    "job": {
+      "nodes": [
+        {
+          "id": "id1",
+          "name": "node1",
+          "createdAt": "Today1",
+          "jobId": "job1",
+          "running": true,
+          "totalSuccessfulConnections": 0,
+          "totalFailedConnections": 0,
+          "totalDroppedConnections": 0,
+          "__typename": "node"
+        },
+        {
+          "id": "id2",
+          "name": "mode2",
+          "createdAt": "Today2",
+          "jobId": "job1",
+          "running": true,
+          "totalSuccessfulConnections": 0,
+          "totalFailedConnections": 0,
+          "totalDroppedConnections": 0,
+          "__typename": "node"
+        },
+        {
+          "id": "id3",
+          "name": "node3",
+          "createdAt": "Today3",
+          "jobId": "job1",
+          "running": false,
+          "totalSuccessfulConnections": 1000,
+          "totalFailedConnections": 100,
+          "totalDroppedConnections": 17,
+          "__typename": "node"
+        }
+      ],
+      "usages": [
+        {
+          "id": "abc1",
+          "jobId": "job1",
+          "appId": "app1",
+          "mem": 1024,
+          "cpu": 0.56,
+          "disk": 2000,
+          "mem_quota": 2048,
+          "disk_quota": 345345,
+          "instance": 0,
+          "time": "Today",
+          "state": "Running",
+          "uptime": 132345,
+          "name": "app1",
+          "__typename": "usage"
+        },
+        {
+          "id": "abc1",
+          "jobId": "job1",
+          "appId": "app1",
+          "mem": 2001,
+          "cpu": 0.56,
+          "disk": 2000,
+          "mem_quota": 2048,
+          "disk_quota": 345345,
+          "instance": 0,
+          "time": "Today",
+          "state": "Running",
+          "uptime": 132345,
+          "name": "app1",
+          "__typename": "usage"
+        },
+        {
+          "id": "abc1",
+          "jobId": "job1",
+          "appId": "app1",
+          "mem": 987,
+          "cpu": 0.56,
+          "disk": 2000,
+          "mem_quota": 2048,
+          "disk_quota": 345345,
+          "instance": 0,
+          "time": "Today",
+          "state": "Running",
+          "uptime": 132345,
+          "name": "app1",
+          "__typename": "usage"
+        },
+        {
+          "id": "abc1",
+          "jobId": "job2",
+          "appId": "app1",
+          "mem": 1024,
+          "cpu": 0.56,
+          "disk": 2000,
+          "mem_quota": 2048,
+          "disk_quota": 345345,
+          "instance": 0,
+          "time": "Today",
+          "state": "Running",
+          "uptime": 132345,
+          "name": "app1",
+          "__typename": "usage"
+        }
+      ],
+      "__typename": "job"
+    }
   }
 }

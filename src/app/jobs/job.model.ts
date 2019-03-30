@@ -1,3 +1,5 @@
+import { Usage } from '../nodes/usage.model';
+
 export interface Job {
   id: string;
   createdAt: string;
@@ -5,4 +7,6 @@ export interface Job {
   taskId: string;
   isRunning: boolean;
   passed: boolean;
+  nodes?: Node[];
+  usages?: Usage[];
 }
