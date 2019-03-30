@@ -14,7 +14,7 @@ export function reducer(state: NodesState = nodesState, action: NodesActions): N
       const usages = {};
 
       action.usages.sort((a, b) => {
-        return Number(new Date(b.time)) - Number(new Date(a.time));
+        return Number(new Date(a.time)) - Number(new Date(b.time));
       });
 
       action.usages.forEach(usage => {
