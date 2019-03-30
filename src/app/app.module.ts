@@ -1,15 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
-import { RouterModule } from '@angular/router';
-import { appRoutes } from './routes';
-import { IsLoggedInGuard } from './core/is-logged-in.guard';
-import { EffectsModule } from '@ngrx/effects';
-import { AppEffects } from './app.effects';
-import { MatDialogModule } from '@angular/material';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {CoreModule} from './core/core.module';
+import {RouterModule} from '@angular/router';
+import {appRoutes} from './routes';
+import {IsLoggedInGuard} from './core/is-logged-in.guard';
+import {EffectsModule} from '@ngrx/effects';
+import {AppEffects} from './app.effects';
+import {MatDialogModule, MatSidenavModule} from '@angular/material';
+import {NavModule} from './nav/nav.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,11 @@ import { MatDialogModule } from '@angular/material';
     EffectsModule.forRoot([AppEffects]),
 
     // Material
-    MatDialogModule
+    MatDialogModule,
+    MatSidenavModule,
+
+    // Features
+    NavModule
   ],
   providers: [
     IsLoggedInGuard

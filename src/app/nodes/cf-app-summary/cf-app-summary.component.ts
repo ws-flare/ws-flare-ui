@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Usage } from '../usage.model';
+import {Component, Input, OnInit} from '@angular/core';
+import {Usage} from '../usage.model';
 import * as Highcharts from 'highcharts';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {filter} from 'rxjs/operators';
+import * as prettyBytes from 'pretty-bytes';
 
 @Component({
   selector: 'app-cf-app-summary',
@@ -18,36 +19,8 @@ export class CfAppSummaryComponent implements OnInit {
     chart: {
       zoomType: 'x'
     },
-    title: {
-      text: ''
-    },
     tooltip: {
-      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-    },
-    plotOptions: {
-      area: {
-        fillColor: {
-          linearGradient: {
-            x1: 0,
-            y1: 0,
-            x2: 0,
-            y2: 1
-          },
-          stops: [
-            [0, Highcharts.getOptions().colors[0]]
-          ]
-        },
-        marker: {
-          radius: 2
-        },
-        lineWidth: 1,
-        states: {
-          hover: {
-            lineWidth: 1
-          }
-        },
-        threshold: null
-      }
+      pointFormat: '{series.name}: <b>{point.y:.0f} MB</b>'
     },
     series: []
   };
@@ -67,7 +40,7 @@ export class CfAppSummaryComponent implements OnInit {
       chart.addSeries({
         type: 'line',
         name: 'memory',
-        data: this.usages.map(usage => usage.mem)
+        data: this.usages.map(usage => usage.mem / Math.pow(1024,2))
       });
     });
   }

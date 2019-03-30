@@ -1,1 +1,9 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+  <mat-sidenav mode="over" [opened]="false">
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-nav></app-nav>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

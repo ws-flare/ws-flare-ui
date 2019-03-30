@@ -1,5 +1,4 @@
-import { jobListItems, jobsListLength, navigateToJobs } from '../../support/jobs/jobs.po';
-import { navigateToNodes, nodesListLength } from '../../support/nodes/nodes.po';
+import {navigateToNodes, nodesListLength} from '../../support/nodes/nodes.po';
 
 describe('Nodes', () => {
 
