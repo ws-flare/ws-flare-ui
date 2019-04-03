@@ -8,6 +8,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducer } from './jobs.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { JobsEffects } from './jobs.effects';
+import { TimeAgoPipe } from 'time-ago-pipe';
 
 const routes: Routes = [
   {
@@ -17,7 +18,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [JobsComponent, JobsListComponent],
+  declarations: [JobsComponent, JobsListComponent, TimeAgoPipe],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

@@ -3,7 +3,7 @@
     "jobs": [
       {
         "id": "id1",
-        "createdAt": "Today1",
+        "createdAt": "2019-04-03T14:14:56.000Z",
         "userId": "user1",
         "taskId": "task1",
         "isRunning": true,
@@ -12,7 +12,7 @@
       },
       {
         "id": "id2",
-        "createdAt": "Today2",
+        "createdAt": "2019-04-03T14:14:56.000Z",
         "userId": "user2",
         "taskId": "task1",
         "isRunning": false,
@@ -21,7 +21,7 @@
       },
       {
         "id": "id3",
-        "createdAt": "Today3",
+        "createdAt": "2019-04-03T14:14:56.000Z",
         "userId": "user3",
         "taskId": "task1",
         "isRunning": false,
