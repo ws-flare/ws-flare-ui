@@ -11,37 +11,33 @@ const tasksQuery = gql`
       userId
       projectId
       name
-      uri
-      totalSimulatedUsers
-      runTime
       cfApi
       cfUser
       cfPass
       cfOrg
       cfSpace
       cfApps
+      scripts
     }
   }
 `;
 
 const createTaskMutation = gql`
-  mutation createTask($projectId: String! $name: String! $uri: String! $totalSimulatedUsers: Int! $runTime: Int! $cfApi: String!
-  $cfUser: String! $cfPass: String! $cfOrg: String! $cfSpace: String! $cfApps: String!) {
-    createTask(projectId: $projectId name: $name uri: $uri totalSimulatedUsers: $totalSimulatedUsers runTime: $runTime cfApi: $cfApi
-    cfUser: $cfUser cfPass: $cfPass cfOrg: $cfOrg cfSpace: $cfSpace cfApps: $cfApps) {
+  mutation createTask($projectId: String! $name: String! $cfApi: String!
+  $cfUser: String! $cfPass: String! $cfOrg: String! $cfSpace: String! $cfApps: String! $scripts: String!) {
+    createTask(projectId: $projectId name: $name cfApi: $cfApi
+    cfUser: $cfUser cfPass: $cfPass cfOrg: $cfOrg cfSpace: $cfSpace cfApps: $cfApps scripts: $scripts) {
       id
       userId
       projectId
       name
-      uri
-      totalSimulatedUsers
-      runTime
       cfApi
       cfUser
       cfPass
       cfOrg
       cfSpace
       cfApps
+      scripts
     }
   }
 `;
@@ -63,15 +59,13 @@ export class TasksService {
       mutation: createTaskMutation, variables: {
         projectId: task.projectId,
         name: task.name,
-        uri: task.uri,
-        totalSimulatedUsers: task.totalSimulatedUsers,
-        runTime: task.runTime,
         cfApi: task.cfApi,
         cfUser: task.cfUser,
         cfPass: task.cfPass,
         cfOrg: task.cfOrg,
         cfSpace: task.cfSpace,
-        cfApps: task.cfApps
+        cfApps: task.cfApps,
+        scripts: JSON.stringify(task.scripts)
       }
     });
   }

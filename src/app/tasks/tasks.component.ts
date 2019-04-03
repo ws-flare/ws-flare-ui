@@ -27,7 +27,7 @@ export class TasksComponent implements OnInit {
   }
 
   openCreateTaskDialog() {
-    this.route.params.subscribe(({projectId}) => this.dialog.open(CreateTaskModalComponent, {width: '500px', data: projectId}));
+    this.route.params.subscribe(({projectId}) => this.dialog.open(CreateTaskModalComponent, {width: '700px', data: projectId}));
   }
 
 }

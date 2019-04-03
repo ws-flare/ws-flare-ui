@@ -48,18 +48,6 @@ describe('CreateTaskModalComponent', () => {
     expect(element.querySelector('input#name')).not.toBeNull();
   });
 
-  it('should have an input for uri', () => {
-    expect(element.querySelector('input#uri')).not.toBeNull();
-  });
-
-  it('should have an input for totalSimulatedUsers', () => {
-    expect(element.querySelector('input#totalSimulatedUsers')).not.toBeNull();
-  });
-
-  it('should have an input for runTime', () => {
-    expect(element.querySelector('input#runTime')).not.toBeNull();
-  });
-
   it('should have an input for cf api', () => {
     expect(element.querySelector('input#cfApi')).not.toBeNull();
   });
@@ -92,6 +80,10 @@ describe('CreateTaskModalComponent', () => {
     expect(element.querySelectorAll('button')[1].textContent).toContain('Submit');
   });
 
+  it('should have a monaco editor for scripts', () => {
+    expect(element.querySelector('monaco-editor')).not.toBeNull();
+  });
+
   it('should close the modal when the user clicks cancel', () => {
     element.querySelectorAll('button')[0].click();
 
@@ -100,30 +92,26 @@ describe('CreateTaskModalComponent', () => {
 
   it('should dispatch an action to create project when user clicks submit', () => {
     component.form.controls['name'].setValue('task1');
-    component.form.controls['uri'].setValue('ws://site.com');
-    component.form.controls['totalSimulatedUsers'].setValue(20);
-    component.form.controls['runTime'].setValue(100);
     component.form.controls['cfApi'].setValue('http://cf.com');
     component.form.controls['cfUser'].setValue('user1');
     component.form.controls['cfPass'].setValue('pass1');
     component.form.controls['cfOrg'].setValue('org1');
     component.form.controls['cfSpace'].setValue('space1');
     component.form.controls['cfApps'].setValue('app1,app2,app3');
+    component.scripts = JSON.stringify([{}]);
 
     element.querySelectorAll('button')[1].click();
 
     expect(Store.prototype.dispatch).toHaveBeenCalledWith(new actions.CreateTask({
       projectId: 'abc123',
       name: 'task1',
-      uri: 'ws://site.com',
-      totalSimulatedUsers: 20,
-      runTime: 100,
       cfApi: 'http://cf.com',
       cfUser: 'user1',
       cfPass: 'pass1',
       cfOrg: 'org1',
       cfSpace: 'space1',
-      cfApps: 'app1,app2,app3'
+      cfApps: 'app1,app2,app3',
+      scripts: JSON.stringify([{}])
     }));
   });
 });

@@ -6,15 +6,13 @@
         "name": "task1",
         "userId": "user1",
         "projectId": "project1",
-        "uri": "ws://ws1.com",
-        "runTime": "30",
-        "totalSimulatedUsers": 100,
         "cfApi": "http://cf.com",
         "cfUser": "user1",
         "cfPass": "pass1",
         "cfOrg": "org1",
         "cfSpace": "space1",
         "cfApps": "app1,app2,app3",
+        "scripts": "[]",
         "__typename": "task"
       },
       {
@@ -22,15 +20,13 @@
         "name": "task2",
         "userId": "user2",
         "projectId": "project2",
-        "uri": "ws://ws2.com",
-        "runTime": "40",
-        "totalSimulatedUsers": 200,
         "cfApi": "http://cf.com",
         "cfUser": "user1",
         "cfPass": "pass1",
         "cfOrg": "org1",
         "cfSpace": "space1",
         "cfApps": "app1,app2,app3",
+        "scripts": "[]",
         "__typename": "task"
       },
       {
@@ -38,15 +34,13 @@
         "name": "task3",
         "userId": "user3",
         "projectId": "project3",
-        "uri": "ws://ws3.com",
-        "runTime": "50",
-        "totalSimulatedUsers": 300,
         "cfApi": "http://cf.com",
         "cfUser": "user1",
         "cfPass": "pass1",
         "cfOrg": "org1",
         "cfSpace": "space1",
         "cfApps": "app1,app2,app3",
+        "scripts": "[]",
         "__typename": "task"
       }
     ]

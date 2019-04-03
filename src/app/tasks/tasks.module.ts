@@ -10,6 +10,7 @@ import { reducer } from './tasks.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { TasksEffects } from './tasks.effects';
 import { CreateTaskModalComponent } from './create-task-modal/create-task-modal.component';
+import { MonacoEditorModule } from 'ngx-monaco';
 
 const routes: Routes = [
   {
@@ -27,6 +28,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     StoreModule.forFeature('tasks', reducer),
     EffectsModule.forFeature([TasksEffects]),
+    MonacoEditorModule.forRoot(),
 
     // Material
     MatListModule,
