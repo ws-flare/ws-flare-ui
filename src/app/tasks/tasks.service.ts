@@ -65,7 +65,7 @@ export class TasksService {
         cfOrg: task.cfOrg,
         cfSpace: task.cfSpace,
         cfApps: task.cfApps,
-        scripts: JSON.stringify(task.scripts)
+        scripts: JSON.stringify(eval(task.scripts))
       }
     });
   }

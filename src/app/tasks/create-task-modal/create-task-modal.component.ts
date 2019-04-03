@@ -36,6 +36,7 @@ export class CreateTaskModalComponent implements OnInit {
       cfOrg: [null, [Validators.required]],
       cfSpace: [null, [Validators.required]],
       cfApps: [null, [Validators.required]],
+      scripts: [null, [Validators.required]],
     });
   }
 
