@@ -1,6 +1,9 @@
 {
   "data": {
     "job": {
+      "id": "abc123",
+      "sockets": [
+      ],
       "nodes": [
         {
           "id": "016906a3-edb0-4efa-8233-5b20f1d18904",

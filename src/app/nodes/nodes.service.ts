@@ -7,6 +7,7 @@ import { Job } from '../jobs/job.model';
 const dataQuery = gql`
   query job($jobId: String!) {
     job(jobId: $jobId) {
+      id
       nodes {
         id
         createdAt
@@ -31,6 +32,15 @@ const dataQuery = gql`
         state
         uptime
         name
+      }
+      sockets {
+        connected
+        disconnected
+        connectionTime
+        disconnectTime
+        hasError
+        errorTime
+        timeToConnection
       }
     }
   }
