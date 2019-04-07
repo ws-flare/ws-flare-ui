@@ -19,6 +19,9 @@ export class SummaryCardComponent implements OnInit {
     chart: {
       zoomType: 'x'
     },
+    title: {
+      text: 'Successful Connections'
+    },
     xAxis: {
       categories: []
     },
