@@ -33,14 +33,13 @@ const dataQuery = gql`
         uptime
         name
       }
-      sockets {
-        connected
-        disconnected
-        connectionTime
-        disconnectTime
-        hasError
-        errorTime
-        timeToConnection
+      connectedSocketTimeFrame {
+        gt
+        lt
+        tick
+        connectedSocketCount {
+          count
+        }
       }
     }
   }

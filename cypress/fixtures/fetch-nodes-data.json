@@ -2,7 +2,7 @@
   "data": {
     "job": {
       "id": "abc123",
-      "sockets": [
+      "connectedSocketTimeFrame": [
       ],
       "nodes": [
         {
