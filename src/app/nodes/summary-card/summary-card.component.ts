@@ -25,6 +25,11 @@ export class SummaryCardComponent implements OnInit {
     xAxis: {
       categories: []
     },
+    yAxis: {
+      title: {
+        text: 'Connections'
+      }
+    },
     tooltip: {
       pointFormat: '{series.name}: <b>{point.y:.0f}</b>'
     },
