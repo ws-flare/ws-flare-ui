@@ -17,7 +17,8 @@ export class NodesEffects {
         takeUntil(this.actions$.pipe(ofType(actions.UNSUBSCRIBE_FROM_UPDATES))),
         switchMap((res) => [
           new actions.UpdateNodes(res.data.job.nodes),
-          new actions.UpdateUsages(res.data.job.usages)
+          new actions.UpdateUsages(res.data.job.usages),
+          new actions.UpdatedConnectedSockets(res.data.job.connectedSocketTimeFrame)
         ]),
         catchError(() => of(new actions.FetchDataFailed()))
       )

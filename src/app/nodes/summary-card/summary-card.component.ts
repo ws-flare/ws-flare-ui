@@ -19,6 +19,9 @@ export class SummaryCardComponent implements OnInit {
     chart: {
       zoomType: 'x'
     },
+    xAxis: {
+      categories: []
+    },
     tooltip: {
       pointFormat: '{series.name}: <b>{point.y:.0f}</b>'
     },
@@ -41,14 +44,16 @@ export class SummaryCardComponent implements OnInit {
     this.chartObject$.subscribe(chart => {
       this.sockets$.subscribe(sockets => {
 
-        chart.addAxis({
-          categories: sockets.map(socket => socket.tick.toString())
-        });
+        for (let i = chart.series.length - 1; i > -1; i--) {
+          chart.series[i].remove();
+        }
+
+        chart.xAxis[0].update({categories: sockets.map(socket => socket.tick.toString())}, true);
 
         chart.addSeries({
           type: 'line',
           name: `Successful Connections`,
-          data: sockets.map(socket => socket.socketCount.count)
+          data: sockets.map(socket => socket.connectedSocketCount.count)
         });
 
       });

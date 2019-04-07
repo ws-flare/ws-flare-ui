@@ -28,7 +28,7 @@ export interface ConnectedSocketTick {
   gt: string;
   lt: string;
   tick: number;
-  socketCount?: ConnectedSocketCount;
+  connectedSocketCount?: ConnectedSocketCount;
 }
 
 export interface ConnectedSocketCount {

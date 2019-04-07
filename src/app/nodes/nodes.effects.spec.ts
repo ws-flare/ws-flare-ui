@@ -8,6 +8,7 @@ import {NodesService} from './nodes.service';
 import {NodesEffects} from './nodes.effects';
 import {Node} from './node.model';
 import {Usage} from './usage.model';
+import {ConnectedSocketTick} from './nodes.state';
 
 jest.mock('./nodes.service');
 jest.mock('@angular/router');
@@ -30,7 +31,8 @@ describe('User Effects', () => {
           data: {
             job: {
               nodes: [{}, {}, {}],
-              usages: [{}, {}]
+              usages: [{}, {}],
+              connectedSocketTimeFrame: [{}, {}]
             }
           }
         })
@@ -38,9 +40,10 @@ describe('User Effects', () => {
 
       const source = cold('a', {a: new actions.FetchData('abc123')});
 
-      const expected = cold('(ab)', {
+      const expected = cold('(abc)', {
         a: new actions.UpdateNodes([{}, {}, {}] as Node[]),
-        b: new actions.UpdateUsages([{}, {}] as Usage[])
+        b: new actions.UpdateUsages([{}, {}] as Usage[]),
+        c: new actions.UpdatedConnectedSockets([{}, {}] as ConnectedSocketTick[])
       });
 
       const effects = new NodesEffects(new Actions(source), store, new NodesService(null));
