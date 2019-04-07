@@ -19,7 +19,9 @@
       "esnext.asynciterable"
     ],
     "types": [
-      "node"
+      "node",
+      "chai",
+      "jest"
     ]
   },
   "exclude": [

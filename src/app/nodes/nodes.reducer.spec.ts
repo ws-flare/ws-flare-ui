@@ -1,4 +1,4 @@
-import {nodesState, NodesState} from './nodes.state';
+import {ConnectedSocketTick, nodesState, NodesState} from './nodes.state';
 import {reducer} from './nodes.reducer';
 import * as actions from './nodes.actions';
 import {Node} from './node.model';
@@ -68,5 +68,12 @@ describe('Nodes Reducer', () => {
         }
       }
     });
+  });
+
+  it('should update connect sockets', () => {
+    const state: NodesState = {...nodesState, connectedSockets: []};
+    const action = new actions.UpdatedConnectedSockets([{}, {}, {}] as ConnectedSocketTick[]);
+
+    expect(reducer(state, action)).toEqual({...state, connectedSockets: [{}, {}, {}]})
   });
 });

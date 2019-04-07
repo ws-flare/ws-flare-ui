@@ -29,6 +29,8 @@ export function reducer(state: NodesState = nodesState, action: NodesActions): N
         }
       });
       return {...state, usages};
+    case actions.UPDATE_CONNECTED_SOCKETS:
+      return {...state, connectedSockets: action.sockets};
     default:
       return state;
   }

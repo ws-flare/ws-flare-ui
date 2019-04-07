@@ -4,13 +4,15 @@ import {Usage} from './usage.model';
 export const nodesState: NodesState = {
   isFetchingData: false,
   nodes: [],
-  usages: {}
+  usages: {},
+  connectedSockets: []
 };
 
 export interface NodesState {
   isFetchingData: boolean;
   nodes: Node[];
   usages: UsagesList;
+  connectedSockets: ConnectedSocketTick[];
 }
 
 export interface UsagesList {
@@ -19,4 +21,16 @@ export interface UsagesList {
 
 export interface AppInstance {
   [key: string]: Usage[];
+}
+
+export interface ConnectedSocketTick {
+  jobId: string;
+  gt: string;
+  lt: string;
+  tick: number;
+  socketCount?: ConnectedSocketCount;
+}
+
+export interface ConnectedSocketCount {
+  count: number;
 }
