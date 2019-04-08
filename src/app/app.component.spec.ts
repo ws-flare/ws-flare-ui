@@ -1,7 +1,10 @@
-import {TestBed, async} from '@angular/core/testing';
-import {RouterTestingModule} from '@angular/router/testing';
-import {AppComponent} from './app.component';
-import {NO_ERRORS_SCHEMA} from '@angular/core';
+import { TestBed, async } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AppComponent } from './app.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+jest.mock('@ngrx/store');
 
 describe('AppComponent', () => {
 
@@ -16,6 +19,12 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      providers: [
+        {
+          provide: Store,
+          useValue: new Store(null, null, null)
+        },
+      ]
     });
   }));
 
@@ -33,6 +42,6 @@ describe('AppComponent', () => {
   });
 
   it('should have a sidenav', () => {
-    expect(element.querySelector('mat-sidenav-container mat-sidenav')).not.toBeNull();
+    expect(element.querySelector('mat-sidenav-container mat-sidenav app-sidenav')).not.toBeNull();
   });
 });

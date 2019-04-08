@@ -1,6 +1,6 @@
 <mat-sidenav-container>
-  <mat-sidenav mode="over" [opened]="false">
-
+  <mat-sidenav mode="over" [opened]="isLoggedIn$ | async">
+    <app-sidenav></app-sidenav>
   </mat-sidenav>
   <mat-sidenav-content>
     <app-nav></app-nav>
