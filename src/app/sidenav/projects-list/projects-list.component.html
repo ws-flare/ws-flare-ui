@@ -1,7 +1,7 @@
 <mat-list>
   <h3 mat-subheader>Projects</h3>
 
-  <mat-list-item *ngFor="let project of projects" [routerLink]="['./', project.id]">
+  <mat-list-item *ngFor="let project of projects" [routerLink]="['projects', project.id]">
 
     <mat-icon mat-list-icon>folder</mat-icon>
     <h4 mat-line>{{project.name}}</h4>

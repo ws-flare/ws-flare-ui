@@ -1,9 +1,9 @@
+<app-nav></app-nav>
 <mat-sidenav-container>
-  <mat-sidenav mode="over" [opened]="isLoggedIn$ | async">
+  <mat-sidenav class="sidenav" [opened]="isLoggedIn$ | async" [fixedInViewport]="false" mode="side">
     <app-sidenav></app-sidenav>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-nav></app-nav>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

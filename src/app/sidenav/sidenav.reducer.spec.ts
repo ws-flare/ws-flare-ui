@@ -2,6 +2,7 @@ import { sidenavState, SidenavState } from './sidenav.state';
 import { reducer } from './sidenav.reducer';
 import * as actions from './sidenav.actions';
 import { Project } from '../projects/Project.model';
+import * as projectActions from '../projects/projects.actions';
 
 describe('Sidenav Reducer', () => {
 
@@ -24,5 +25,12 @@ describe('Sidenav Reducer', () => {
     const action = new actions.UpdateProjects([{}, {}, {}] as Project[]);
 
     expect(reducer(state, action)).toEqual({...state, isFetchingData: false, projects: [{}, {}, {}]});
+  });
+
+  it('should add project to the list when created', () => {
+    const state: SidenavState = {...sidenavState, projects: [{id: 'abc1'}, {id: 'abc2'}] as Project[]};
+    const action = new projectActions.CreateProjectOk({id: 'abc3'} as Project);
+
+    expect(reducer(state, action)).toEqual({...state, projects: [{id: 'abc3'}, {id: 'abc1'}, {id: 'abc2'}]});
   });
 });
