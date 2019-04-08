@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { AppState } from './app.state';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'unicron-ui';
+
+  isLoggedIn$: Observable<boolean>;
+
+  constructor(private store: Store<AppState>) {
+    this.isLoggedIn$ = store.pipe(map(state => state.user.isLoggedIn));
+  }
 }

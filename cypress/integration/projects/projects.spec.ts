@@ -15,6 +15,9 @@ describe('Projects', () => {
   });
 
   it('should display a list of projects', () => {
+
+    cy.route('POST', 'graphql', '@cfProjectsQuery');
+
     projectsListLength().should('eq', 3);
   });
 
