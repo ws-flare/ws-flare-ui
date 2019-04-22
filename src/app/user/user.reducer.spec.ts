@@ -1,14 +1,15 @@
-import { reducer } from './user.reducer';
-import { UserState, userState } from './user.state';
+import {reducer} from './user.reducer';
+import {UserState, userState} from './user.state';
 import * as actions from './user.actions';
+import {User} from './user.model';
 
 describe('User Reducer', () => {
 
   it('should be able to login', () => {
-    const state: UserState = {...userState, isLoggingIn: false};
+    const state: UserState = {...userState, isLoggingIn: false, isLoggedIn: true, user: {} as User};
     const action = new actions.Login();
 
-    expect(reducer(state, action)).toEqual({...state, isLoggingIn: true});
+    expect(reducer(state, action)).toEqual({...state, isLoggingIn: true, isLoggedIn: false, user: null});
   });
 
   it('should log the user in', () => {
@@ -41,10 +42,10 @@ describe('User Reducer', () => {
   });
 
   it('should allow a user to signup', () => {
-    const state: UserState = {...userState, isSigningUp: false};
+    const state: UserState = {...userState, isSigningUp: false, isLoggedIn: true, user: {} as User};
     const action = new actions.Signup();
 
-    expect(reducer(state, action)).toEqual({...state, isSigningUp: true});
+    expect(reducer(state, action)).toEqual({...state, isSigningUp: true, isLoggedIn: false, user: null});
   });
 
   it('should let a user know that signing up was successful', () => {
@@ -72,7 +73,10 @@ describe('User Reducer', () => {
     const state: UserState = {...userState};
     const action = new actions.UpdateSignupEmail('test@test.com');
 
-    expect(reducer(state, action)).toEqual({...userState, signupForm: {...userState.signupForm, email: 'test@test.com'}});
+    expect(reducer(state, action)).toEqual({
+      ...userState,
+      signupForm: {...userState.signupForm, email: 'test@test.com'}
+    });
   });
 
   it('should update password on signup form', () => {

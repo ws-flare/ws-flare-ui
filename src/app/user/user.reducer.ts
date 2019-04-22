@@ -1,11 +1,11 @@
-import { userState, UserState } from './user.state';
-import { UserActions } from './user.actions';
+import {userState, UserState} from './user.state';
+import {UserActions} from './user.actions';
 import * as actions from './user.actions';
 
 export function reducer(state: UserState = userState, action: UserActions) {
   switch (action.type) {
     case actions.LOGIN:
-      return {...state, isLoggingIn: true};
+      return {...state, isLoggingIn: true, isLoggedIn: false, user: null};
     case actions.LOGIN_OK:
       return {...state, isLoggingIn: false, user: action.user, isLoggedIn: true};
     case actions.LOGIN_FAIL:
@@ -15,7 +15,7 @@ export function reducer(state: UserState = userState, action: UserActions) {
     case actions.UPDATE_PASSWORD:
       return {...state, loginForm: {...state.loginForm, password: action.password}};
     case actions.SIGNUP:
-      return {...state, isSigningUp: true};
+      return {...state, isSigningUp: true, isLoggedIn: false, user: null};
     case actions.SIGNUP_OK:
       return {...state, isSigningUp: false};
     case actions.SIGNUP_FAIL:
