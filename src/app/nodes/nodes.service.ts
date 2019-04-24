@@ -18,20 +18,25 @@ const dataQuery = gql`
         totalFailedConnections
         totalDroppedConnections
       }
-      usages {
-        id
-        jobId
-        appId
-        mem
-        cpu
-        disk
-        mem_quota
-        disk_quota
-        instance
-        time
-        state
-        uptime
-        name
+      usageTicks {
+        gt
+        lt
+        tick
+        usages {
+          id
+          jobId
+          appId
+          mem
+          cpu
+          disk
+          mem_quota
+          disk_quota
+          instance
+          time
+          state
+          uptime
+          name
+        }
       }
       connectedSocketTimeFrame {
         gt
