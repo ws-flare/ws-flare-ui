@@ -18,7 +18,7 @@ describe('Projects', () => {
 
     cy.route('POST', 'graphql', '@cfProjectsQuery');
 
-    projectsListLength().should('eq', 3);
+    projectsListLength().should('gt', 2);
   });
 
   it('should be able to click on a project', () => {
