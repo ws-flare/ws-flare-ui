@@ -1,14 +1,14 @@
 import * as actions from './nodes.actions';
-import {cold} from 'jest-marbles';
-import {Actions} from '@ngrx/effects';
-import {of, throwError} from 'rxjs';
-import {Store} from '@ngrx/store';
-import {AppState} from '../app.state';
-import {NodesService} from './nodes.service';
-import {NodesEffects} from './nodes.effects';
-import {Node} from './node.model';
-import {Usage} from './usage.model';
-import {ConnectedSocketTick} from './nodes.state';
+import { cold } from 'jest-marbles';
+import { Actions } from '@ngrx/effects';
+import { of, throwError } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { AppState } from '../app.state';
+import { NodesService } from './nodes.service';
+import { NodesEffects } from './nodes.effects';
+import { Node } from './node.model';
+import { Usage } from './usage.model';
+import { ConnectedSocketTick } from './nodes.state';
 
 jest.mock('./nodes.service');
 jest.mock('@angular/router');
@@ -30,6 +30,7 @@ describe('User Effects', () => {
         valueChanges: of({
           data: {
             job: {
+              totalSimulators: 250,
               nodes: [{}, {}, {}],
               usages: [{}, {}],
               connectedSocketTimeFrame: [{}, {}]
@@ -40,10 +41,11 @@ describe('User Effects', () => {
 
       const source = cold('a', {a: new actions.FetchData('abc123')});
 
-      const expected = cold('(abc)', {
+      const expected = cold('(abcd)', {
         a: new actions.UpdateNodes([{}, {}, {}] as Node[]),
         b: new actions.UpdateUsages([{}, {}] as Usage[]),
-        c: new actions.UpdatedConnectedSockets([{}, {}] as ConnectedSocketTick[])
+        c: new actions.UpdatedConnectedSockets([{}, {}] as ConnectedSocketTick[]),
+        d: new actions.UpdateTotalSimulators(250)
       });
 
       const effects = new NodesEffects(new Actions(source), store, new NodesService(null));

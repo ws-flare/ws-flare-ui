@@ -1,11 +1,11 @@
-import {Injectable} from '@angular/core';
-import {Actions, Effect, ofType} from '@ngrx/effects';
-import {AppState} from '../app.state';
-import {Store} from '@ngrx/store';
-import {NodesService} from './nodes.service';
+import { Injectable } from '@angular/core';
+import { Actions, Effect, ofType } from '@ngrx/effects';
+import { AppState } from '../app.state';
+import { Store } from '@ngrx/store';
+import { NodesService } from './nodes.service';
 import * as actions from './nodes.actions';
-import {catchError, mergeMap, switchMap, takeUntil} from 'rxjs/operators';
-import {of} from 'rxjs';
+import { catchError, mergeMap, switchMap, takeUntil } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Injectable()
 export class NodesEffects {
@@ -18,7 +18,8 @@ export class NodesEffects {
         switchMap((res) => [
           new actions.UpdateNodes(res.data.job.nodes),
           new actions.UpdateUsages(res.data.job.usages),
-          new actions.UpdatedConnectedSockets(res.data.job.connectedSocketTimeFrame)
+          new actions.UpdatedConnectedSockets(res.data.job.connectedSocketTimeFrame),
+          new actions.UpdateTotalSimulators(res.data.job.totalSimulators)
         ]),
         catchError(() => of(new actions.FetchDataFailed()))
       )

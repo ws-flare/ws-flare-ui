@@ -8,6 +8,9 @@ const dataQuery = gql`
   query job($jobId: String!) {
     job(jobId: $jobId) {
       id
+      totalSimulators
+      isRunning
+      passed
       nodes {
         id
         createdAt

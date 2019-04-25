@@ -1,7 +1,7 @@
-import {Action} from '@ngrx/store';
-import {Node} from './node.model';
-import {Usage} from './usage.model';
-import {ConnectedSocketTick} from './nodes.state';
+import { Action } from '@ngrx/store';
+import { Node } from './node.model';
+import { Usage } from './usage.model';
+import { ConnectedSocketTick } from './nodes.state';
 
 export const FETCH_DATA = 'nodes/FETCH_DATA';
 export const FETCH_DATA_FAILED = 'nodes/FETCH_DATA_FAILED';
@@ -9,6 +9,7 @@ export const FETCH_DATA_FAILED = 'nodes/FETCH_DATA_FAILED';
 export const UPDATE_NODES = 'nodes/UPDATE_NODES';
 export const UPDATE_USAGES = 'nodes/UPDATE_USAGES';
 export const UPDATE_CONNECTED_SOCKETS = 'nodes/UPDATE_CONNECTED_SOCKETS';
+export const UPDATE_TOTAL_SIMULATORS = 'nodes/UPDATE_TOTAL_SIMULATORS';
 
 export const UNSUBSCRIBE_FROM_UPDATES = 'nodes/UNSUBSCRIBE_FROM_UPDATES';
 
@@ -44,6 +45,13 @@ export class UpdatedConnectedSockets implements Action {
   }
 }
 
+export class UpdateTotalSimulators implements Action {
+  readonly type = UPDATE_TOTAL_SIMULATORS;
+
+  constructor(public totalSimulators: number) {
+  }
+}
+
 export class UnsubscribeFromUpdates implements Action {
   readonly type = UNSUBSCRIBE_FROM_UPDATES;
 }
@@ -54,4 +62,5 @@ export type NodesActions =
   | UpdateNodes
   | UpdateUsages
   | UnsubscribeFromUpdates
+  | UpdateTotalSimulators
   | UpdatedConnectedSockets;

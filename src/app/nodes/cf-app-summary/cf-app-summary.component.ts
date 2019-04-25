@@ -1,8 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
-import {BehaviorSubject, Observable} from 'rxjs';
-import {filter} from 'rxjs/operators';
-import {AppInstance} from '../nodes.state';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { filter } from 'rxjs/operators';
+import { AppInstance } from '../nodes.state';
 
 @Component({
   selector: 'app-cf-app-summary',
@@ -21,6 +21,17 @@ export class CfAppSummaryComponent implements OnInit {
     tooltip: {
       pointFormat: '{series.name}: <b>{point.y:.0f} MB</b>'
     },
+    xAxis: {
+      categories: [],
+      title: {
+        text: 'Seconds'
+      }
+    },
+    yAxis: {
+      title: {
+        text: 'MB'
+      }
+    },
     series: []
   };
   cpuChartOptions: Highcharts.Options = {
@@ -29,6 +40,19 @@ export class CfAppSummaryComponent implements OnInit {
     },
     tooltip: {
       pointFormat: '{series.name}: <b>{point.y:.0f} %</b>'
+    },
+    xAxis: {
+      categories: [],
+      title: {
+        text: 'Seconds'
+      }
+    },
+    yAxis: {
+      title: {
+        text: 'Percent Used'
+      },
+      min: 0,
+      max: 100
     },
     series: []
   };

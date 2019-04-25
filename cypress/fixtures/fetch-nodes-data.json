@@ -1,6 +1,9 @@
 {
   "data": {
     "job": {
+      "totalSimulators": 50000,
+      "isRunning": true,
+      "passed": false,
       "id": "c3b6e15d-aae6-4631-a7b3-c412cbf5627d",
       "nodes": [
         {
@@ -22,7 +25,7 @@
           "running": false,
           "totalSuccessfulConnections": 1000,
           "totalFailedConnections": 0,
-          "totalDroppedConnections": 0,
+          "totalDroppedConnections": 560,
           "__typename": "Node"
         },
         {
@@ -33,7 +36,7 @@
           "running": false,
           "totalSuccessfulConnections": 1000,
           "totalFailedConnections": 0,
-          "totalDroppedConnections": 0,
+          "totalDroppedConnections": 3000,
           "__typename": "Node"
         },
         {
@@ -43,7 +46,7 @@
           "name": "ws-flare-test-client-aad2c4d0-3596-4805-bd47-b305c159705c",
           "running": false,
           "totalSuccessfulConnections": 1000,
-          "totalFailedConnections": 0,
+          "totalFailedConnections": 2000,
           "totalDroppedConnections": 0,
           "__typename": "Node"
         },
@@ -129,7 +132,7 @@
           "jobId": "c3b6e15d-aae6-4631-a7b3-c412cbf5627d",
           "appId": "c879ad2a-aa53-4093-93f3-e2323dc54fb6",
           "mem": 164622791,
-          "cpu": 0.003,
+          "cpu": 1.20,
           "disk": 58269696,
           "mem_quota": 268435456,
           "disk_quota": 1073741824,

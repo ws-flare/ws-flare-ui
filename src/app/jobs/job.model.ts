@@ -9,4 +9,5 @@ export interface Job {
   passed: boolean;
   nodes?: Node[];
   usages?: Usage[];
+  totalSimulators: number;
 }

@@ -1,5 +1,5 @@
-import {nodesState, NodesState} from './nodes.state';
-import {NodesActions} from './nodes.actions';
+import { nodesState, NodesState } from './nodes.state';
+import { NodesActions } from './nodes.actions';
 import * as actions from './nodes.actions';
 
 export function reducer(state: NodesState = nodesState, action: NodesActions): NodesState {
@@ -31,6 +31,8 @@ export function reducer(state: NodesState = nodesState, action: NodesActions): N
       return {...state, usages};
     case actions.UPDATE_CONNECTED_SOCKETS:
       return {...state, connectedSockets: action.sockets};
+    case actions.UPDATE_TOTAL_SIMULATORS:
+      return {...state, totalSimulators: action.totalSimulators};
     default:
       return state;
   }

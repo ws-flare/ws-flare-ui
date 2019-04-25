@@ -1,8 +1,8 @@
-import {ConnectedSocketTick, nodesState, NodesState} from './nodes.state';
-import {reducer} from './nodes.reducer';
+import { ConnectedSocketTick, nodesState, NodesState } from './nodes.state';
+import { reducer } from './nodes.reducer';
 import * as actions from './nodes.actions';
-import {Node} from './node.model';
-import {Usage} from './usage.model';
+import { Node } from './node.model';
+import { Usage } from './usage.model';
 
 describe('Nodes Reducer', () => {
 
@@ -74,6 +74,13 @@ describe('Nodes Reducer', () => {
     const state: NodesState = {...nodesState, connectedSockets: []};
     const action = new actions.UpdatedConnectedSockets([{}, {}, {}] as ConnectedSocketTick[]);
 
-    expect(reducer(state, action)).toEqual({...state, connectedSockets: [{}, {}, {}]})
+    expect(reducer(state, action)).toEqual({...state, connectedSockets: [{}, {}, {}]});
+  });
+
+  it('should update total simulators', () => {
+    const state: NodesState = {...nodesState, totalSimulators: 0};
+    const action = new actions.UpdateTotalSimulators(10);
+
+    expect(reducer(state, action)).toEqual({...state, totalSimulators: 10});
   });
 });

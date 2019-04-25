@@ -1,11 +1,12 @@
-import {Node} from './node.model';
-import {Usage} from './usage.model';
+import { Node } from './node.model';
+import { Usage } from './usage.model';
 
 export const nodesState: NodesState = {
   isFetchingData: false,
   nodes: [],
   usages: {},
-  connectedSockets: []
+  connectedSockets: [],
+  totalSimulators: 0
 };
 
 export interface NodesState {
@@ -13,6 +14,7 @@ export interface NodesState {
   nodes: Node[];
   usages: UsagesList;
   connectedSockets: ConnectedSocketTick[];
+  totalSimulators: number;
 }
 
 export interface UsagesList {
