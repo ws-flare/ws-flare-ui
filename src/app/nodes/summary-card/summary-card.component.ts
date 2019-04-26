@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { BehaviorSubject, Observable } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {Store, select} from '@ngrx/store';
+import {BehaviorSubject, forkJoin, merge, Observable} from 'rxjs';
 import * as Highcharts from 'highcharts';
-import { filter, map } from 'rxjs/operators';
-import { ModuleState } from '../module.state';
-import { ConnectedSocketTick } from '../nodes.state';
-import { Node } from '../node.model';
+import {filter, map} from 'rxjs/operators';
+import {ModuleState} from '../module.state';
+import {ConnectedSocketTick} from '../nodes.state';
+import {Node} from '../node.model';
 
 @Component({
   selector: 'app-summary-card',
@@ -24,6 +24,11 @@ export class SummaryCardComponent implements OnInit {
     },
     title: {
       text: 'Websocket Connection Summary'
+    },
+    plotOptions: {
+      series: {
+        animation: false
+      }
     },
     xAxis: {
       categories: [],
@@ -50,15 +55,14 @@ export class SummaryCardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.totalSimulators$ = this.store.pipe(map(state => state.nodes.totalSimulators));
-    this.nodes$ = this.store.pipe(map(state => state.nodes.nodes));
-    this.sockets$ = this.store.pipe(map(state => state.nodes.connectedSockets));
+    this.totalSimulators$ = this.store.pipe(select(state => state.nodes.totalSimulators));
+    this.nodes$ = this.store.pipe(select(state => state.nodes.nodes));
+    this.sockets$ = this.store.pipe(select(state => state.nodes.connectedSockets));
 
     this.chartObjectSubject = new BehaviorSubject(null);
     this.chartObject$ = this.chartObjectSubject.asObservable().pipe(filter(chartObject => !!chartObject));
 
     this.chartObject$.subscribe(chart => {
-
       this.totalSimulators$.subscribe(totalSimulators => {
         this.nodes$.subscribe(nodes => {
           let totalSuccess = 0;

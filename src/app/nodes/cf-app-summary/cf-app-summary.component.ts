@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import * as Highcharts from 'highcharts';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { filter } from 'rxjs/operators';
-import { AppInstance } from '../nodes.state';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {filter} from 'rxjs/operators';
+import {AppInstance} from '../nodes.state';
 
 @Component({
   selector: 'app-cf-app-summary',
@@ -20,6 +20,11 @@ export class CfAppSummaryComponent implements OnInit {
     },
     tooltip: {
       pointFormat: '{series.name}: <b>{point.y:.0f} MB</b>'
+    },
+    plotOptions: {
+      series: {
+        animation: false
+      }
     },
     xAxis: {
       categories: [],
@@ -40,6 +45,11 @@ export class CfAppSummaryComponent implements OnInit {
     },
     tooltip: {
       pointFormat: '{series.name}: <b>{point.y:.0f} %</b>'
+    },
+    plotOptions: {
+      series: {
+        animation: false
+      }
     },
     xAxis: {
       categories: [],
@@ -73,9 +83,12 @@ export class CfAppSummaryComponent implements OnInit {
     // Memory Chart
     this.memoryChartObject$.subscribe(chart => {
 
-      chart.title.update({text: `Memory`});
+      chart.subtitle.update({text: `Memory`});
 
       Object.keys(this.instances).forEach(key => {
+
+        chart.title.update({text: this.instances[key][0].name});
+
         chart.addSeries({
           type: 'line',
           name: `Instance ${key}`,
@@ -87,9 +100,12 @@ export class CfAppSummaryComponent implements OnInit {
     // CPU Chart
     this.cpuChartObject$.subscribe(chart => {
 
-      chart.title.update({text: `CPU`});
+      chart.subtitle.update({text: `CPU`});
 
       Object.keys(this.instances).forEach(key => {
+
+        chart.title.update({text: this.instances[key][0].name});
+
         chart.addSeries({
           type: 'line',
           name: `Instance ${key}`,
