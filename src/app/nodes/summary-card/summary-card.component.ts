@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Store, select} from '@ngrx/store';
-import {BehaviorSubject, forkJoin, merge, Observable} from 'rxjs';
+import {select, Store} from '@ngrx/store';
+import {BehaviorSubject, Observable} from 'rxjs';
 import * as Highcharts from 'highcharts';
-import {filter, map} from 'rxjs/operators';
+import {filter} from 'rxjs/operators';
 import {ModuleState} from '../module.state';
 import {ConnectedSocketTick} from '../nodes.state';
 import {Node} from '../node.model';
@@ -44,7 +44,20 @@ export class SummaryCardComponent implements OnInit {
     tooltip: {
       pointFormat: '{series.name}: <b>{point.y:.0f}</b>'
     },
-    series: []
+    series: [],
+    exporting: {
+      buttons: {
+        contextButton: {
+          menuItems: [{
+            text: 'Export to PNG',
+            onclick: function () {
+              this.exportChart();
+            },
+            separator: false
+          }] as any[]
+        }
+      }
+    }
   };
   chartCallback = this.callback.bind(this);
 

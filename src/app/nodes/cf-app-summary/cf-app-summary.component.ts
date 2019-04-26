@@ -37,6 +37,19 @@ export class CfAppSummaryComponent implements OnInit {
         text: 'MB'
       }
     },
+    exporting: {
+      buttons: {
+        contextButton: {
+          menuItems: [{
+            text: 'Export to PNG',
+            onclick: function () {
+              this.exportChart();
+            },
+            separator: false
+          }] as any[]
+        }
+      }
+    },
     series: []
   };
   cpuChartOptions: Highcharts.Options = {
@@ -63,6 +76,19 @@ export class CfAppSummaryComponent implements OnInit {
       },
       min: 0,
       max: 100
+    },
+    exporting: {
+      buttons: {
+        contextButton: {
+          menuItems: [{
+            text: 'Export to PNG',
+            onclick: function () {
+              this.exportChart();
+            },
+            separator: false
+          }] as any[]
+        }
+      }
     },
     series: []
   };

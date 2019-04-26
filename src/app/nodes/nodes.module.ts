@@ -20,6 +20,7 @@ import {SummaryCardComponent} from './summary-card/summary-card.component';
 import {HighchartsChartModule} from 'highcharts-angular';
 import {CfAppSummaryComponent} from './cf-app-summary/cf-app-summary.component';
 import * as theme from 'highcharts/themes/dark-unica';
+import exporter from 'highcharts/modules/exporting';
 
 const routes: Routes = [
   {
@@ -52,6 +53,7 @@ export class NodesModule {
   constructor(@Inject(PLATFORM_ID) platformId) {
     if (isPlatformBrowser(platformId)) {
       theme(Highcharts);
+      exporter(Highcharts);
     }
   }
 
