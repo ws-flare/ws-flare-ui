@@ -1,16 +1,17 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SidenavComponent } from './sidenav.component';
-import { ProjectsListComponent } from './projects-list/projects-list.component';
-import { MatIconModule, MatListModule } from '@angular/material';
-import { RouterModule } from '@angular/router';
-import { StoreModule } from '@ngrx/store';
-import { reducer } from './sidenav.reducer';
-import { EffectsModule } from '@ngrx/effects';
-import { SidenavEffects } from './sidenav.effects';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {SidenavComponent} from './sidenav.component';
+import {ProjectsListComponent} from './projects-list/projects-list.component';
+import {MatButtonModule, MatIconModule, MatListModule} from '@angular/material';
+import {RouterModule} from '@angular/router';
+import {StoreModule} from '@ngrx/store';
+import {reducer} from './sidenav.reducer';
+import {EffectsModule} from '@ngrx/effects';
+import {SidenavEffects} from './sidenav.effects';
+import {HomeButtonComponent} from './home-button/home-button.component';
 
 @NgModule({
-  declarations: [SidenavComponent, ProjectsListComponent],
+  declarations: [SidenavComponent, ProjectsListComponent, HomeButtonComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -19,7 +20,8 @@ import { SidenavEffects } from './sidenav.effects';
 
     // Material
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ],
   exports: [
     SidenavComponent
