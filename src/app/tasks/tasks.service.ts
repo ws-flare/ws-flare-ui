@@ -24,9 +24,9 @@ const tasksQuery = gql`
 
 const createTaskMutation = gql`
   mutation createTask($projectId: String! $name: String! $cfApi: String!
-  $cfUser: String! $cfPass: String! $cfOrg: String! $cfSpace: String! $cfApps: String! $scripts: String!) {
+  $cfUser: String! $cfPass: String! $cfOrg: String! $cfSpace: String! $cfApps: String! $successThreshold: Int! $scripts: String!) {
     createTask(projectId: $projectId name: $name cfApi: $cfApi
-    cfUser: $cfUser cfPass: $cfPass cfOrg: $cfOrg cfSpace: $cfSpace cfApps: $cfApps scripts: $scripts) {
+    cfUser: $cfUser cfPass: $cfPass cfOrg: $cfOrg cfSpace: $cfSpace cfApps: $cfApps successThreshold: $successThreshold scripts: $scripts) {
       id
       userId
       projectId
