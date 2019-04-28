@@ -1,11 +1,11 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Store } from '@ngrx/store';
+import {Component, Inject, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Store} from '@ngrx/store';
 import * as appActions from '../../app.actions';
 import * as actions from '../tasks.actions';
-import { ModuleState } from '../module.state';
-import { MAT_DIALOG_DATA } from '@angular/material';
-import { MonacoFile } from 'ngx-monaco';
+import {ModuleState} from '../module.state';
+import {MAT_DIALOG_DATA} from '@angular/material';
+import {MonacoFile} from 'ngx-monaco';
 
 @Component({
   selector: 'app-create-task-modal',
@@ -36,6 +36,7 @@ export class CreateTaskModalComponent implements OnInit {
       cfOrg: [null, [Validators.required]],
       cfSpace: [null, [Validators.required]],
       cfApps: [null, [Validators.required]],
+      successThreshold: [80, Validators.required],
       scripts: [null, [Validators.required]],
     });
   }

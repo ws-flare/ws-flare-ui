@@ -98,6 +98,7 @@ describe('CreateTaskModalComponent', () => {
     component.form.controls['cfOrg'].setValue('org1');
     component.form.controls['cfSpace'].setValue('space1');
     component.form.controls['cfApps'].setValue('app1,app2,app3');
+    component.form.controls['successThreshold'].setValue(80);
     component.scripts = JSON.stringify([{}]);
 
     element.querySelectorAll('button')[1].click();
@@ -111,6 +112,7 @@ describe('CreateTaskModalComponent', () => {
       cfOrg: 'org1',
       cfSpace: 'space1',
       cfApps: 'app1,app2,app3',
+      successThreshold: 80,
       scripts: JSON.stringify([{}])
     }));
   });

@@ -30,6 +30,11 @@
       <input id="cfApps" matInput formControlName="cfApps" placeholder="Cloud Foundry Apps">
     </mat-form-field>
 
+    <mat-form-field>
+      <input id="successThreshold" type="number" matInput formControlName="successThreshold"
+             placeholder="Success Threshold">
+    </mat-form-field>
+
     <monaco-editor
       theme="vs-dark"
       [file]="file"

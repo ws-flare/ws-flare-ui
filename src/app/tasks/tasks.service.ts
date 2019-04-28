@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { Apollo } from 'apollo-angular';
+import {Injectable} from '@angular/core';
+import {Apollo} from 'apollo-angular';
 import gql from 'graphql-tag';
-import { FetchResult } from 'apollo-link';
-import { Task } from './task.model';
+import {FetchResult} from 'apollo-link';
+import {Task} from './task.model';
 
 const tasksQuery = gql`
   query tasks($projectId: String!) {
@@ -38,6 +38,7 @@ const createTaskMutation = gql`
       cfSpace
       cfApps
       scripts
+      successThreshold
     }
   }
 `;
@@ -65,6 +66,7 @@ export class TasksService {
         cfOrg: task.cfOrg,
         cfSpace: task.cfSpace,
         cfApps: task.cfApps,
+        successThreshold: task.successThreshold,
         scripts: JSON.stringify(eval(task.scripts))
       }
     });
