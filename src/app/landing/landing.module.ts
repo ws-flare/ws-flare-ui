@@ -4,20 +4,41 @@ import { LandingComponent } from './landing.component';
 import { RouterModule, Routes } from '@angular/router';
 import { UserModule } from '../user/user.module';
 import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 
 const routes: Routes = [
   {
     path: '',
-    component: LandingComponent
+    component: LandingComponent,
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'signup',
+        component: SignupComponent
+      }
+    ]
   },
 ];
 
 @NgModule({
-  declarations: [LandingComponent, SignupComponent],
+  declarations: [
+    LandingComponent,
+    SignupComponent,
+    LoginComponent
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    UserModule
+    UserModule,
+
+    // Material
+    MatInputModule,
+    MatButtonModule,
+    MatFormFieldModule
   ]
 })
 export class LandingModule {

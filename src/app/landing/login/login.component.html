@@ -1,26 +1,20 @@
 <div class="container">
-
   <div>
     <mat-form-field class="form-field">
-      <input matInput
-             id="signup-username"
+      <input id="username"
+             matInput
              placeholder="Username"
              (keyup)="updateUsername($event.target.value)"/>
     </mat-form-field>
   </div>
+
+  <br/>
+
   <div>
     <mat-form-field class="form-field">
-      <input matInput
-             id="signup-email"
-             placeholder="Email"
-             (keyup)="updateEmail($event.target.value)"/>
-    </mat-form-field>
-  </div>
-  <div>
-    <mat-form-field class="form-field">
-      <input matInput
+      <input id="password"
+             matInput
              type="password"
-             id="signup-password"
              placeholder="Password"
              (keyup)="updatePassword($event.target.value)"/>
     </mat-form-field>
@@ -28,16 +22,16 @@
 
   <button mat-raised-button
           color="primary"
-          id="signup"
-          (click)="signup()">Signup
+          id="login"
+          (click)="login()">Login
   </button>
 
   <br/>
 
-  <a routerLink="login">
+  <a routerLink="/home/signup">
     <button mat-button
             color="basic"
-            id="login">Login
+            id="signup">Sign Up
     </button>
   </a>
 </div>

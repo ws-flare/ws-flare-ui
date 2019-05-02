@@ -26,5 +26,5 @@ export const appRoutes: Routes = [
     loadChildren: './nodes/nodes.module#NodesModule',
     canActivate: [IsLoggedInGuard]
   },
-  {path: '**', redirectTo: 'home', pathMatch: 'full'}
+  {path: '**', redirectTo: 'home/login', pathMatch: 'full'}
 ];

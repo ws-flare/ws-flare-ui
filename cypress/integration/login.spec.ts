@@ -1,4 +1,4 @@
-import { navigateTo, usernameInput, passwordInput, loginButton } from '../support/login.po';
+import { navigateTo, usernameInput, passwordInput, loginButton, signupButton } from '../support/login.po';
 
 describe('Login', () => {
 
@@ -23,5 +23,11 @@ describe('Login', () => {
     loginButton().click();
 
     cy.url().should('contain', '/projects');
+  });
+
+  it('should switch to signup form', () => {
+    signupButton().click();
+
+    cy.url().should('contain', '/home/signup');
   });
 });

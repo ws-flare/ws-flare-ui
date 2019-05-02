@@ -1,8 +1,9 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {SignupComponent} from './signup.component';
-import {Store} from '@ngrx/store';
+import { SignupComponent } from './signup.component';
+import { Store } from '@ngrx/store';
 import * as actions from '../../user/user.actions';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 jest.mock('@ngrx/store');
 
@@ -17,6 +18,7 @@ describe('SignupComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      schemas: [NO_ERRORS_SCHEMA],
       declarations: [SignupComponent],
       providers: [{provide: Store, useValue: new Store(null, null, null)}]
     });
@@ -30,7 +32,7 @@ describe('SignupComponent', () => {
     username = element.querySelector('input#signup-username');
     email = element.querySelector('input#signup-email');
     password = element.querySelector('input#signup-password');
-    submitButton = element.querySelector('button');
+    submitButton = element.querySelector('button#signup');
 
     fixture.detectChanges();
   });
@@ -42,7 +44,7 @@ describe('SignupComponent', () => {
   });
 
   it('should have a submit button', () => {
-    expect(submitButton.textContent).toEqual('Signup');
+    expect(submitButton.textContent).toContain('Signup');
   });
 
   describe('actions', () => {

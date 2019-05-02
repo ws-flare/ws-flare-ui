@@ -5,3 +5,5 @@ export const usernameInput = () => cy.get('input#username');
 export const passwordInput = () => cy.get('input#password');
 
 export const loginButton = () => cy.get('button#login');
+
+export const signupButton = () => cy.get('button#signup');

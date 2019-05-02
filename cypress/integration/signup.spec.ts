@@ -1,5 +1,4 @@
-import {usernameInput, passwordInput, signupButton, emailInput} from '../support/signup.po';
-import {navigateTo} from '../support/login.po';
+import { navigateTo, usernameInput, passwordInput, signupButton, loginButton, emailInput } from '../support/signup.po';
 
 describe('Signup', () => {
 
@@ -24,5 +23,11 @@ describe('Signup', () => {
     emailInput().type('test@test.com');
     passwordInput().type('testPassword');
     signupButton().click();
+  });
+
+  it('should switch to login form', () => {
+    loginButton().click();
+
+    cy.url().should('contain', '/home/login');
   });
 });
