@@ -1,4 +1,5 @@
 import { Task } from './task.model';
+import { CiToken } from './ci-token.model';
 
 export const tasksState: TasksState = {
   isFetchingTasks: false,
@@ -11,5 +12,5 @@ export interface TasksState {
   isFetchingTasks: boolean;
   isCreatingTask: boolean;
   tasks: Task[];
-  ciToken: string;
+  ciToken: CiToken;
 }
