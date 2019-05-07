@@ -1,8 +1,9 @@
-import {Injectable} from '@angular/core';
-import {Apollo} from 'apollo-angular';
+import { Injectable } from '@angular/core';
+import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
-import {FetchResult} from 'apollo-link';
-import {Task} from './task.model';
+import { FetchResult } from 'apollo-link';
+import { Task } from './task.model';
+import { CiToken } from './ci-token.model';
 
 const tasksQuery = gql`
   query tasks($projectId: String!) {
@@ -18,6 +19,14 @@ const tasksQuery = gql`
       cfSpace
       cfApps
       scripts
+    }
+  }
+`;
+
+const generateCiTokenQuery = gql`
+  query generateCiToken($taskId: String!) {
+    generateCiToken(taskId: $taskId) {
+      token
     }
   }
 `;
@@ -70,5 +79,9 @@ export class TasksService {
         scripts: JSON.stringify(eval(task.scripts))
       }
     });
+  }
+
+  generateCiToken(taskId: string) {
+    return this.apollo.query<FetchResult<CiToken>>({query: generateCiTokenQuery, variables: {taskId}});
   }
 }

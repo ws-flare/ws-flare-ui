@@ -64,4 +64,5 @@ describe('TasksComponent', () => {
 
     expect(MatDialog.prototype.open).toHaveBeenCalledWith(CreateTaskModalComponent, {width: '700px', data: 'abc123'});
   });
+
 });

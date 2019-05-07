@@ -3,21 +3,41 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { TasksListComponent } from './tasks-list.component';
 import { Task } from '../task.model';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { MatDialog, MatMenuModule } from '@angular/material';
+import { Store } from '@ngrx/store';
+import { CiTokenModalComponent } from '../ci-token-modal/ci-token-modal.component';
+import * as actions from '../tasks.actions';
+
+jest.mock('@ngrx/store');
+jest.mock('@angular/material');
 
 describe('TasksListComponent', () => {
   let component: TasksListComponent;
   let fixture: ComponentFixture<TasksListComponent>;
   let element;
+  let store;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
-      declarations: [TasksListComponent]
+      imports: [],
+      declarations: [TasksListComponent],
+      providers: [
+        {
+          provide: Store,
+          useValue: new Store(null, null, null)
+        },
+        {
+          provide: MatDialog,
+          useValue: new MatDialog(null, null, null, null, null, null, null)
+        }
+      ]
     });
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TasksListComponent);
+    store = TestBed.get(Store);
     component = fixture.componentInstance;
     element = fixture.nativeElement;
 
@@ -38,6 +58,10 @@ describe('TasksListComponent', () => {
     expect(element.querySelectorAll('mat-list mat-list-item').length).toBe(3);
   });
 
+  it('should have a dropdown options list for each task', () => {
+    expect(element.querySelectorAll('mat-menu').length).toBe(3);
+  });
+
   it('should have correct name for each task', () => {
     const tasks = element.querySelectorAll('mat-list mat-list-item h4');
 
@@ -46,11 +70,10 @@ describe('TasksListComponent', () => {
     expect(tasks[2].textContent).toContain('task3');
   });
 
-  it('should have icons on each task', () => {
-    const icons = element.querySelectorAll('mat-list mat-list-item mat-icon');
+  it('should generate CI token', () => {
+    component.generateCiToken('abc123');
 
-    expect(icons[0].textContent).toContain('device_hub');
-    expect(icons[1].textContent).toContain('device_hub');
-    expect(icons[2].textContent).toContain('device_hub');
+    expect(MatDialog.prototype.open).toHaveBeenCalledWith(CiTokenModalComponent, {width: '700px'});
+    expect(store.dispatch).toHaveBeenCalledWith(new actions.GenerateCiToken('abc123'));
   });
 });

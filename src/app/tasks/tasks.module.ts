@@ -3,7 +3,15 @@ import { CommonModule } from '@angular/common';
 import { TasksComponent } from './tasks.component';
 import { RouterModule, Routes } from '@angular/router';
 import { TasksListComponent } from './tasks-list/tasks-list.component';
-import { MatButtonModule, MatCardModule, MatDialogModule, MatIconModule, MatInputModule, MatListModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatDialogModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule
+} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './tasks.reducer';
@@ -11,6 +19,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { TasksEffects } from './tasks.effects';
 import { CreateTaskModalComponent } from './create-task-modal/create-task-modal.component';
 import { MonacoEditorModule } from 'ngx-monaco';
+import { CiTokenModalComponent } from './ci-token-modal/ci-token-modal.component';
 
 const routes: Routes = [
   {
@@ -20,7 +29,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [TasksComponent, TasksListComponent, CreateTaskModalComponent],
+  declarations: [TasksComponent, TasksListComponent, CreateTaskModalComponent, CiTokenModalComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -36,10 +45,12 @@ const routes: Routes = [
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatMenuModule
   ],
   entryComponents: [
-    CreateTaskModalComponent
+    CreateTaskModalComponent,
+    CiTokenModalComponent
   ]
 })
 export class TasksModule {

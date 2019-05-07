@@ -35,6 +35,20 @@ export class TasksEffects {
     )
   );
 
+  @Effect() generateCiToken$ = this.actions$.pipe(
+    ofType<actions.GenerateCiToken>(actions.GENERATE_CI_TOKEN),
+    mergeMap(({taskId}) =>
+      this.service.generateCiToken(taskId).pipe(
+        switchMap((response) => [
+            new actions.GenerateCiTokenOk(response.data.generateCiToken),
+            new appActions.CloseAllModals()
+          ]
+        ),
+        catchError(() => of(new actions.GenerateCiTokenFail()))
+      )
+    )
+  );
+
   constructor(private actions$: Actions,
               private store$: Store<AppState>,
               private service: TasksService) {

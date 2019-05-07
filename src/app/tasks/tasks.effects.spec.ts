@@ -72,17 +72,54 @@ describe('Tasks Effects', () => {
 
       expect(effects.createTask$).toBeObservable(expected);
     });
+
+    it('should handle failure', () => {
+      TasksService.prototype.createTask = jest.fn().mockImplementationOnce(() => of(throwError('ERROR!!!')));
+
+      const source = cold('a', {a: new actions.CreateTask({id: 'abc123', name: 'task1'} as Task)});
+
+      const expected = cold('a', {a: new actions.CreateTaskFail()});
+
+      const effects = new TasksEffects(new Actions(source), store, new TasksService(null));
+
+      expect(effects.createTask$).toBeObservable(expected);
+    });
   });
 
-  it('should handle failure', () => {
-    TasksService.prototype.createTask = jest.fn().mockImplementationOnce(() => of(throwError('ERROR!!!')));
+  describe('generate ci token', () => {
 
-    const source = cold('a', {a: new actions.CreateTask({id: 'abc123', name: 'task1'} as Task)});
+    it('should work', () => {
+      TasksService.prototype.generateCiToken = jest.fn().mockImplementationOnce(() => of({
+        data: {
+          generateCiToken: {
+            token: 'abc123'
+          }
+        }
+      }));
 
-    const expected = cold('a', {a: new actions.CreateTaskFail()});
+      const source = cold('a', {a: new actions.GenerateCiToken('task1')});
 
-    const effects = new TasksEffects(new Actions(source), store, new TasksService(null));
+      const expected = cold('(ab)', {
+        a: new actions.GenerateCiTokenOk({token: 'abc123'}),
+        b: new appActions.CloseAllModals()
+      });
 
-    expect(effects.createTask$).toBeObservable(expected);
+      const effects = new TasksEffects(new Actions(source), store, new TasksService(null));
+
+      expect(effects.generateCiToken$).toBeObservable(expected);
+    });
+
+    it('should handle failure', () => {
+      TasksService.prototype.generateCiToken = jest.fn().mockImplementationOnce(() => of(throwError('ERROR!!!')));
+
+      const source = cold('a', {a: new actions.GenerateCiToken('abc123')});
+
+      const expected = cold('a', {a: new actions.GenerateCiTokenFail()});
+
+      const effects = new TasksEffects(new Actions(source), store, new TasksService(null));
+
+      expect(effects.generateCiToken$).toBeObservable(expected);
+    });
+
   });
 });

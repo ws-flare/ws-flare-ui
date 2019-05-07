@@ -28,4 +28,14 @@ describe('TasksService', () => {
       expect(response).toEqual({id: 'abc123', name: 'test123'});
     });
   });
+
+  it('should generate ci token', () => {
+    Apollo.prototype.query = jest.fn().mockImplementationOnce(() => of({token: 'abc123'}));
+
+    const service = new TasksService(new Apollo(null, null));
+
+    service.generateCiToken('task1').subscribe(response => {
+      expect(response).toEqual({token: 'abc123'});
+    });
+  });
 });
