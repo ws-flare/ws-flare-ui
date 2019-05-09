@@ -1,3 +1,11 @@
-<p>
-  ci-token-modal works!
-</p>
+<h2 mat-dialog-title>CI Token</h2>
+
+<div mat-dialog-content>
+
+  <p>Your token is: <span class="token">{{(token$ | async)?.token}}</span></p>
+
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="ok()">OK</button>
+</div>

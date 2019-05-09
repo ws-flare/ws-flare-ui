@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { TasksListComponent } from './tasks-list.component';
 import { Task } from '../task.model';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { MatDialog, MatMenuModule } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { Store } from '@ngrx/store';
 import { CiTokenModalComponent } from '../ci-token-modal/ci-token-modal.component';
 import * as actions from '../tasks.actions';

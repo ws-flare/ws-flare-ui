@@ -16,6 +16,8 @@ export function reducer(state: TasksState = tasksState, action: TasksActions): T
       return {...state, isCreatingTask: false, tasks: [action.task, ...state.tasks]};
     case actions.CREATE_TASK_FAIL:
       return {...state, isCreatingTask: false};
+    case actions.GENERATE_CI_TOKEN_OK:
+      return {...state, ciToken: action.token};
     default:
       return state;
   }

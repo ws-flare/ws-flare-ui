@@ -99,9 +99,8 @@ describe('Tasks Effects', () => {
 
       const source = cold('a', {a: new actions.GenerateCiToken('task1')});
 
-      const expected = cold('(ab)', {
-        a: new actions.GenerateCiTokenOk({token: 'abc123'}),
-        b: new appActions.CloseAllModals()
+      const expected = cold('a', {
+        a: new actions.GenerateCiTokenOk({token: 'abc123'})
       });
 
       const effects = new TasksEffects(new Actions(source), store, new TasksService(null));
