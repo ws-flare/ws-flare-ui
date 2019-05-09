@@ -53,4 +53,11 @@ describe('Tasks reducer', () => {
 
     expect(reducer(state, action)).toEqual({...state, isCreatingTask: false});
   });
+
+  it('should generate ci token', () => {
+    const state: TasksState = {...tasksState, ciToken: null};
+    const action = new actions.GenerateCiTokenOk({token: 'abc123'});
+
+    expect(reducer(state, action)).toEqual({...state, ciToken: {token: 'abc123'}});
+  });
 });

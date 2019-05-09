@@ -52,10 +52,6 @@ describe('CiTokenModalComponent', () => {
     expect(element.querySelectorAll('button')[0].textContent).toContain('OK');
   });
 
-  it('should display the token', () => {
-    expect(element.querySelector('p').textContent).toContain('Your token is: abc123');
-  });
-
   it('should close the modal when the user clicks OK', () => {
     element.querySelectorAll('button')[0].click();
 

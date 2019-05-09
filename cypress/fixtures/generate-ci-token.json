@@ -1,0 +1,8 @@
+{
+  "data": {
+    "generateCiToken": {
+      "__typename": "token",
+      "token": "abc123"
+    }
+  }
+}

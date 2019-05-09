@@ -39,11 +39,7 @@ export class TasksEffects {
     ofType<actions.GenerateCiToken>(actions.GENERATE_CI_TOKEN),
     mergeMap(({taskId}) =>
       this.service.generateCiToken(taskId).pipe(
-        switchMap((response) => [
-            new actions.GenerateCiTokenOk(response.data.generateCiToken),
-            new appActions.CloseAllModals()
-          ]
-        ),
+        mergeMap((response) => of(new actions.GenerateCiTokenOk(response.data.generateCiToken))),
         catchError(() => of(new actions.GenerateCiTokenFail()))
       )
     )
