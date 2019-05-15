@@ -1,30 +1,33 @@
-import {Inject, NgModule, PLATFORM_ID} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ActionReducer, StoreModule} from '@ngrx/store';
-import {EffectsModule} from '@ngrx/effects';
-import {HttpClientModule} from '@angular/common/http';
-import {Apollo, ApolloModule} from 'apollo-angular';
-import {HttpLink, HttpLinkModule} from 'apollo-angular-link-http';
-import {ApolloLink} from 'apollo-link';
-import {InMemoryCache} from 'apollo-cache-inmemory';
-import {localStorageSync} from 'ngrx-store-localstorage';
-import {storeLogger} from 'ngrx-store-logger';
-import {setContext} from 'apollo-link-context';
-import {AppState} from '../app.state';
-import {environment} from '../../environments/environment';
-import {UserState} from '../user/user.state';
-import {customStorage} from '../custom-local-storage';
-import {reducer as userReducer} from '../user/user.reducer';
+import { Inject, NgModule, PLATFORM_ID } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ActionReducer, StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { HttpClientModule } from '@angular/common/http';
+import { Apollo, ApolloModule } from 'apollo-angular';
+import { HttpLink, HttpLinkModule } from 'apollo-angular-link-http';
+import { ApolloLink } from 'apollo-link';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { localStorageSync } from 'ngrx-store-localstorage';
+import { storeLogger } from 'ngrx-store-logger';
+import { setContext } from 'apollo-link-context';
+import { AppState } from '../app.state';
+import { environment } from '../../environments/environment';
+import { UserState } from '../user/user.state';
+import { customStorage } from '../custom-local-storage';
+import { reducer as userReducer } from '../user/user.reducer';
 
+// Redux logger for debugging
 export function logger(reducer: ActionReducer<AppState>): any {
   return storeLogger()(reducer);
 }
 
+// Redux local storage plugin for storing user tokens
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
   return localStorageSync({keys: ['user'], rehydrate: true, storage: customStorage})(reducer);
 }
 
+// Setup graphql authentication tokens
 const authLink = setContext((_, {headers}) => {
   const user: UserState = JSON.parse(localStorage.getItem('user'));
 
@@ -38,6 +41,7 @@ const authLink = setContext((_, {headers}) => {
 
 export const metaReducers = [localStorageSyncReducer];
 
+// Only add the logger when in development mode
 if (environment.logger) {
   metaReducers.push(logger);
 }
@@ -66,6 +70,7 @@ export class CoreModule {
       httpLink.create({uri: '/graphql'})
     ]);
 
+    // Configure graphql
     apollo.create({
       link,
       cache: new InMemoryCache({}),

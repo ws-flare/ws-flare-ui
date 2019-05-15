@@ -3,6 +3,9 @@ import { jobsState, JobsState } from './jobs.state';
 import { reducer } from './jobs.reducer';
 import { Job } from './job.model';
 
+/**
+ * Tests for jobs.reducer
+ */
 describe('Jobs Reducer', () => {
 
   it('should return same state if action is not recognized', () => {

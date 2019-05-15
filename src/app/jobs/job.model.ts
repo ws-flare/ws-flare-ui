@@ -1,5 +1,8 @@
 import { Usage } from '../nodes/usage.model';
 
+/**
+ * Interface which describes attributes of a Job
+ */
 export interface Job {
   id: string;
   createdAt: string;

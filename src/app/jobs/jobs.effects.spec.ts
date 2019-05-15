@@ -11,6 +11,9 @@ import { Job } from './job.model';
 jest.mock('./jobs.service');
 jest.mock('@angular/router');
 
+/**
+ * Tests for jobs.effects
+ */
 describe('Tasks Effects', () => {
 
   const state = {};

@@ -9,6 +9,9 @@ export const CREATE_PROJECT = 'projects/CREATE_PROJECT';
 export const CREATE_PROJECT_OK = 'projects/CREATE_PROJECT_OK';
 export const CREATE_PROJECT_FAIL = 'projects/CREATE_PROJECT_FAIL';
 
+/**
+ * Actions for redux to be used in this module for project related activities
+ */
 export class FetchProjects implements Action {
   readonly type = FETCH_PROJECTS;
 }

@@ -4,12 +4,18 @@ import { AppState } from '../app.state';
 import { Store } from '@ngrx/store';
 import { NodesService } from './nodes.service';
 import * as actions from './nodes.actions';
-import { catchError, mergeMap, switchMap, takeUntil } from 'rxjs/operators';
+import { catchError, switchMap, takeUntil } from 'rxjs/operators';
 import { of } from 'rxjs';
 
+/**
+ * Effects for nodes related actions that will handle redux side effects
+ */
 @Injectable()
 export class NodesEffects {
 
+  /**
+   * Fetches data from the server to populate graph visualizations and list of nodes
+   */
   @Effect() getData$ = this.actions$.pipe(
     ofType<actions.FetchData>(actions.FETCH_DATA),
     switchMap(({jobId}) =>

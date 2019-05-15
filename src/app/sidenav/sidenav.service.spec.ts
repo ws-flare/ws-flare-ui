@@ -7,6 +7,9 @@ import { Project } from '../projects/Project.model';
 
 jest.mock('apollo-angular');
 
+/**
+ * Tests for sidenav.service
+ */
 describe('SidenavService', () => {
 
   it('should get data for sidenav', async(() => {

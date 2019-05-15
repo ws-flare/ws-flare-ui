@@ -12,6 +12,9 @@ import * as appActions from '../app.actions';
 jest.mock('./projects.service');
 jest.mock('@angular/router');
 
+/**
+ * Tests for projects.effects
+ */
 describe('User Effects', () => {
 
   const state = {};

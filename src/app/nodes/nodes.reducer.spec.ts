@@ -4,6 +4,9 @@ import * as actions from './nodes.actions';
 import { Node } from './node.model';
 import { Usage } from './usage.model';
 
+/**
+ * Tests for nodes.reducer
+ */
 describe('Nodes Reducer', () => {
 
   it('should return same state if action is not recognized', () => {

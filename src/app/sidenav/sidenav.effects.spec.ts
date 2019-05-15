@@ -11,6 +11,9 @@ import { SidenavService } from './sidenav.service';
 jest.mock('./sidenav.service');
 jest.mock('@angular/router');
 
+/**
+ * Tests for sidenav.effects
+ */
 describe('Sidenav Effects', () => {
 
   const state = {};

@@ -7,6 +7,9 @@ import { Project } from './Project.model';
 
 jest.mock('apollo-angular');
 
+/**
+ * Tests for the projects service
+ */
 describe('ProjectsService', () => {
 
   it('should get a list of projects', async(() => {

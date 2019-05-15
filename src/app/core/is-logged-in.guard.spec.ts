@@ -7,6 +7,9 @@ import { cold } from 'jest-marbles';
 
 jest.mock('@angular/router');
 
+/**
+ * Tests for is-logged-in guard
+ */
 describe('IsLoggedInGuard', () => {
   let state = {
     user: {

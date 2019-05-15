@@ -7,9 +7,15 @@ import { of } from 'rxjs';
 import * as actions from './jobs.actions';
 import { JobsService } from './jobs.service';
 
+/**
+ * Handles job related side effects in redux
+ */
 @Injectable()
 export class JobsEffects {
 
+  /**
+   * Gets a list of jobs from the server
+   */
   @Effect() getJobs$ = this.actions$.pipe(
     ofType<actions.FetchJobs>(actions.FETCH_JOBS),
     mergeMap(({taskId}) =>
@@ -20,6 +26,9 @@ export class JobsEffects {
     )
   );
 
+  /**
+   * Starts a new job
+   */
   @Effect() startJob$ = this.actions$.pipe(
     ofType<actions.StartJob>(actions.START_JOB),
     mergeMap(({taskId}) =>

@@ -1,12 +1,15 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {SidenavComponent} from './sidenav.component';
-import {Store} from '@ngrx/store';
+import { SidenavComponent } from './sidenav.component';
+import { Store } from '@ngrx/store';
 import * as actions from './sidenav.actions';
-import {NO_ERRORS_SCHEMA} from '@angular/core';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 jest.mock('@ngrx/store');
 
+/**
+ * Tests for sidenav.component
+ */
 describe('SidenavComponent', () => {
   let component: SidenavComponent;
   let fixture: ComponentFixture<SidenavComponent>;

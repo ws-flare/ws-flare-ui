@@ -7,6 +7,9 @@ import { map } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import * as actions from './jobs.actions';
 
+/**
+ * Jobs container component for displaying list of jobs
+ */
 @Component({
   selector: 'app-jobs',
   templateUrl: './jobs.component.html',
@@ -20,10 +23,16 @@ export class JobsComponent implements OnInit {
     this.jobs$ = store.pipe(map(state => state.jobs.jobs));
   }
 
+  /**
+   * Read task id from the browser route then dispatch an action to fetch jobs
+   */
   ngOnInit() {
     this.route.params.subscribe(({taskId}) => this.store.dispatch(new actions.FetchJobs(taskId)));
   }
 
+  /**
+   * Read task id from the browser then dispatch an action to start a job
+   */
   startJob() {
     this.route.params.subscribe(({taskId}) => this.store.dispatch(new actions.StartJob(taskId)));
   }

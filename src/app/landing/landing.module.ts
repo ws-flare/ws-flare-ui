@@ -7,6 +7,9 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 
+/**
+ * Routes for landing module
+ */
 const routes: Routes = [
   {
     path: '',
@@ -24,6 +27,9 @@ const routes: Routes = [
   },
 ];
 
+/**
+ * Defines landing module and its dependencies
+ */
 @NgModule({
   declarations: [
     LandingComponent,

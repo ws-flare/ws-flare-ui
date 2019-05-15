@@ -6,6 +6,9 @@ import { Store } from '@ngrx/store';
 
 jest.mock('@ngrx/store');
 
+/**
+ * Tests for summary-card.component
+ */
 describe('SummaryCardComponent', () => {
   let component: SummaryCardComponent;
   let fixture: ComponentFixture<SummaryCardComponent>;

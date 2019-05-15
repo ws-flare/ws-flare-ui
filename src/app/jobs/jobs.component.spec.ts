@@ -9,6 +9,9 @@ import { of } from 'rxjs';
 
 jest.mock('@ngrx/store');
 
+/**
+ * Tests for jobs.component
+ */
 describe('JobsComponent', () => {
   let component: JobsComponent;
   let fixture: ComponentFixture<JobsComponent>;

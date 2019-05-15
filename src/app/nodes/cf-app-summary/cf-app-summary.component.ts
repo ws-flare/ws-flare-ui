@@ -1,9 +1,12 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
-import {BehaviorSubject, Observable} from 'rxjs';
-import {filter} from 'rxjs/operators';
-import {AppInstance} from '../nodes.state';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { filter } from 'rxjs/operators';
+import { AppInstance } from '../nodes.state';
 
+/**
+ * Component for displaying Cloud Foundry app summary
+ */
 @Component({
   selector: 'app-cf-app-summary',
   templateUrl: './cf-app-summary.component.html',
@@ -14,6 +17,8 @@ export class CfAppSummaryComponent implements OnInit {
   @Input() instances: AppInstance;
 
   Highcharts = Highcharts;
+
+  // Chart options for visualization
   memoryChartOptions: Highcharts.Options = {
     chart: {
       zoomType: 'x'

@@ -3,6 +3,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CfAppSummaryComponent } from './cf-app-summary.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
+/**
+ * Tests for cf-app-summary.component
+ */
 describe('CfAppSummaryComponent', () => {
   let component: CfAppSummaryComponent;
   let fixture: ComponentFixture<CfAppSummaryComponent>;

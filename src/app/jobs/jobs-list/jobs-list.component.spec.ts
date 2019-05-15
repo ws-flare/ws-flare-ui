@@ -5,6 +5,9 @@ import { Job } from '../job.model';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { TimeAgoPipe } from 'time-ago-pipe';
 
+/**
+ * Tests for jobs-list
+ */
 describe('JobsListComponent', () => {
   let component: JobsListComponent;
   let fixture: ComponentFixture<JobsListComponent>;

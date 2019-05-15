@@ -10,6 +10,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { JobsEffects } from './jobs.effects';
 import { TimeAgoPipe } from 'time-ago-pipe';
 
+/**
+ * Routes for jobs module
+ */
 const routes: Routes = [
   {
     path: '',
@@ -17,6 +20,9 @@ const routes: Routes = [
   },
 ];
 
+/**
+ * Define the job module
+ */
 @NgModule({
   declarations: [JobsComponent, JobsListComponent, TimeAgoPipe],
   imports: [

@@ -3,6 +3,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProjectsListComponent } from './projects-list.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
+/**
+ * Tests for projects-list.component
+ */
 describe('ProjectsListComponent', () => {
   let component: ProjectsListComponent;
   let fixture: ComponentFixture<ProjectsListComponent>;

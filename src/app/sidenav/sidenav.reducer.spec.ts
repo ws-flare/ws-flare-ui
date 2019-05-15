@@ -4,6 +4,9 @@ import * as actions from './sidenav.actions';
 import { Project } from '../projects/Project.model';
 import * as projectActions from '../projects/projects.actions';
 
+/**
+ * Tests for sidenav.reducer
+ */
 describe('Sidenav Reducer', () => {
 
   it('should return same state if action is not recognized', () => {

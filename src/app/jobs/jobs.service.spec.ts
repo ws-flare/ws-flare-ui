@@ -6,6 +6,9 @@ import { JobsService } from './jobs.service';
 
 jest.mock('apollo-angular');
 
+/**
+ * Tests for jobs service
+ */
 describe('JobsService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 

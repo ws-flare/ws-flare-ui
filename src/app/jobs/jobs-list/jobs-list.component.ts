@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Job } from '../job.model';
 
+/**
+ * Display list of jobs
+ */
 @Component({
   selector: 'app-jobs-list',
   templateUrl: './jobs-list.component.html',

@@ -1,8 +1,8 @@
-import {Inject, NgModule, PLATFORM_ID} from '@angular/core';
-import {CommonModule, isPlatformBrowser} from '@angular/common';
-import {NodesComponent} from './nodes.component';
-import {RouterModule, Routes} from '@angular/router';
-import {NodesListComponent} from './nodes-list/nodes-list.component';
+import { Inject, NgModule, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { NodesComponent } from './nodes.component';
+import { RouterModule, Routes } from '@angular/router';
+import { NodesListComponent } from './nodes-list/nodes-list.component';
 import * as Highcharts from 'highcharts';
 import {
   MatButtonModule,
@@ -12,16 +12,19 @@ import {
   MatInputModule,
   MatListModule
 } from '@angular/material';
-import {StoreModule} from '@ngrx/store';
-import {reducer} from './nodes.reducer';
-import {EffectsModule} from '@ngrx/effects';
-import {NodesEffects} from './nodes.effects';
-import {SummaryCardComponent} from './summary-card/summary-card.component';
-import {HighchartsChartModule} from 'highcharts-angular';
-import {CfAppSummaryComponent} from './cf-app-summary/cf-app-summary.component';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './nodes.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { NodesEffects } from './nodes.effects';
+import { SummaryCardComponent } from './summary-card/summary-card.component';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { CfAppSummaryComponent } from './cf-app-summary/cf-app-summary.component';
 import * as theme from 'highcharts/themes/dark-unica';
 import exporter from 'highcharts/modules/exporting';
 
+/**
+ * Define browser routes for this module
+ */
 const routes: Routes = [
   {
     path: '',
@@ -29,6 +32,9 @@ const routes: Routes = [
   },
 ];
 
+/**
+ * Define the nodes module and its dependencies
+ */
 @NgModule({
   declarations: [NodesComponent, NodesListComponent, SummaryCardComponent, CfAppSummaryComponent],
   imports: [

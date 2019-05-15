@@ -9,6 +9,9 @@ export const START_JOB = 'jobs/START_JOB';
 export const START_JOB_OK = 'jobs/START_JOB_OK';
 export const START_JOB_FAIL = 'jobs/START_JOB_FAIL';
 
+/**
+ * Job related actions which are used by redux
+ */
 export class FetchJobs implements Action {
   readonly type = FETCH_JOBS;
 

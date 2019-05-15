@@ -3,6 +3,9 @@ import { ProjectsState, projectsState } from './projects.state';
 import { reducer } from './projects.reducer';
 import { Project } from './Project.model';
 
+/**
+ * Tests for projects.reducer
+ */
 describe('Projects Reducer', () => {
 
   it('should return same state if action is unknown', () => {

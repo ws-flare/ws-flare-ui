@@ -1,6 +1,9 @@
 import { Node } from './node.model';
 import { Usage } from './usage.model';
 
+/**
+ * Defines the default redux state for this module
+ */
 export const nodesState: NodesState = {
   isFetchingData: false,
   nodes: [],
@@ -9,6 +12,9 @@ export const nodesState: NodesState = {
   totalSimulators: 0
 };
 
+/**
+ * Defines the attributes of the state for this module
+ */
 export interface NodesState {
   isFetchingData: boolean;
   nodes: Node[];

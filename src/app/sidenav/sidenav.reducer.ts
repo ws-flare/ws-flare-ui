@@ -4,6 +4,12 @@ import * as actions from './sidenav.actions';
 import { ProjectsActions } from '../projects/projects.actions';
 import * as projectActions from '../projects/projects.actions';
 
+/**
+ * Handles state logic in redux for this sidenav module
+ * @param state - The current state
+ * @param action - The action that has occurred
+ * @returns state - The new state
+ */
 export function reducer(state: SidenavState = sidenavState, action: SidenavActions | ProjectsActions): SidenavState {
   switch (action.type) {
     case actions.FETCH_DATA:

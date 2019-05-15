@@ -3,6 +3,9 @@ import { Node } from '../node.model';
 import { NodesListComponent } from './nodes-list.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
+/**
+ * Tests for nodes-list.component
+ */
 describe('NodesListComponent', () => {
   let component: NodesListComponent;
   let fixture: ComponentFixture<NodesListComponent>;

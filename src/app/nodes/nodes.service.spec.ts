@@ -7,6 +7,9 @@ import {Node} from './node.model';
 
 jest.mock('apollo-angular');
 
+/**
+ * Tests for nodes.service
+ */
 describe('NodesService', () => {
 
   it('should get data for nodes page', async(() => {

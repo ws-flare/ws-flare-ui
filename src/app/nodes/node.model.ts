@@ -1,3 +1,6 @@
+/**
+ * Define attributes for Node model
+ */
 export interface Node {
   id: string;
   createdAt: string;

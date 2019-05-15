@@ -1,12 +1,15 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {NodesComponent} from './nodes.component';
-import {NO_ERRORS_SCHEMA} from '@angular/core';
-import {ActionsSubject, Store} from '@ngrx/store';
-import {ActivatedRoute} from '@angular/router';
-import {of} from 'rxjs';
+import { NodesComponent } from './nodes.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { ActionsSubject, Store } from '@ngrx/store';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 import * as actions from './nodes.actions';
 
+/**
+ * Tests for nodes.component
+ */
 describe('NodesComponent', () => {
   let component: NodesComponent;
   let fixture: ComponentFixture<NodesComponent>;

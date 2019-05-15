@@ -6,6 +6,9 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 jest.mock('@ngrx/store');
 
+/**
+ * Tests for landing.component
+ */
 describe('LandingComponent', () => {
   let component: LandingComponent;
   let fixture: ComponentFixture<LandingComponent>;

@@ -2,6 +2,12 @@ import { projectsState, ProjectsState } from './projects.state';
 import { ProjectsActions } from './projects.actions';
 import * as actions from './projects.actions';
 
+/**
+ * Handles projects logic in redux for this module
+ * @param state - The current state
+ * @param action - The action that was performed
+ * @returns state - The new state
+ */
 export function reducer(state: ProjectsState = projectsState, action: ProjectsActions): ProjectsState {
   switch (action.type) {
     case actions.FETCH_PROJECTS:

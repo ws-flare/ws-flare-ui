@@ -1,3 +1,6 @@
+/**
+ * Defines the attributes in the Usage model
+ */
 export interface Usage {
   id: string;
   jobId: string;

@@ -7,6 +7,9 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 jest.mock('@ngrx/store');
 
+/**
+ * Tests for login.component
+ */
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;

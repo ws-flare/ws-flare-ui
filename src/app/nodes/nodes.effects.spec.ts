@@ -13,6 +13,9 @@ import { ConnectedSocketTick } from './nodes.state';
 jest.mock('./nodes.service');
 jest.mock('@angular/router');
 
+/**
+ * Tests for nodes.effects
+ */
 describe('User Effects', () => {
 
   const state = {};

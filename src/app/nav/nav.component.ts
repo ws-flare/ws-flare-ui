@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Component for displaying navigation bar in the user interface
+ */
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -7,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

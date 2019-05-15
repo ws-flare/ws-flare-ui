@@ -9,6 +9,9 @@ import * as actions from '../projects.actions';
 
 jest.mock('@ngrx/store');
 
+/**
+ * Tests for create-project-modal.component
+ */
 describe('CreateProjectModalComponent', () => {
   let component: CreateProjectModalComponent;
   let fixture: ComponentFixture<CreateProjectModalComponent>;

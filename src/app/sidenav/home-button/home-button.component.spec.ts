@@ -3,6 +3,9 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {HomeButtonComponent} from './home-button.component';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
 
+/**
+ * Tests for home-button.component
+ */
 describe('HomeButtonComponent', () => {
   let component: HomeButtonComponent;
   let fixture: ComponentFixture<HomeButtonComponent>;

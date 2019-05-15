@@ -6,6 +6,9 @@ export const FETCH_DATA_FAILED = 'sidenav/FETCH_DATA_FAILED';
 
 export const UPDATE_PROJECTS = 'sidenav/UPDATE_PROJECTS';
 
+/**
+ * Redux actions used for sidenav related activities
+ */
 export class FetchData implements Action {
   readonly type = FETCH_DATA;
 }

@@ -8,9 +8,15 @@ import { catchError, mergeMap, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import * as appActions from '../app.actions';
 
+/**
+ * Handles redux side effects for projects related actions
+ */
 @Injectable()
 export class ProjectsEffects {
 
+  /**
+   * Gets a list of projects from the server
+   */
   @Effect() getProjects$ = this.actions$.pipe(
     ofType(actions.FETCH_PROJECTS),
     mergeMap(() =>
@@ -21,6 +27,9 @@ export class ProjectsEffects {
     )
   );
 
+  /**
+   * Creates a new project on the server
+   */
   @Effect() createProject$ = this.actions$.pipe(
     ofType<actions.CreateProject>(actions.CREATE_PROJECT),
     mergeMap(({name}) =>

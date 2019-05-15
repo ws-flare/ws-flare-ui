@@ -2,6 +2,13 @@ import { jobsState, JobsState } from './jobs.state';
 import { JobsActions } from './jobs.actions';
 import * as actions from './jobs.actions';
 
+/**
+ * Redux state management logic for jobs
+ *
+ * @param state - The current state
+ * @param action - The action that occurred
+ * @return state - The new state after logic is applied
+ */
 export function reducer(state: JobsState = jobsState, action: JobsActions): JobsState {
   switch (action.type) {
     case actions.FETCH_JOBS:

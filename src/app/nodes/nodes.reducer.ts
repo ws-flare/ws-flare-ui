@@ -2,6 +2,12 @@ import { nodesState, NodesState } from './nodes.state';
 import { NodesActions } from './nodes.actions';
 import * as actions from './nodes.actions';
 
+/**
+ * Handles logic for nodes module in redux reducer
+ * @param state - The current state
+ * @param action - The action that occurred
+ * @returns state = The new state
+ */
 export function reducer(state: NodesState = nodesState, action: NodesActions): NodesState {
   switch (action.type) {
     case actions.FETCH_DATA:

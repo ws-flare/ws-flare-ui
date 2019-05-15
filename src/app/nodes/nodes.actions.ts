@@ -13,6 +13,9 @@ export const UPDATE_TOTAL_SIMULATORS = 'nodes/UPDATE_TOTAL_SIMULATORS';
 
 export const UNSUBSCRIBE_FROM_UPDATES = 'nodes/UNSUBSCRIBE_FROM_UPDATES';
 
+/**
+ * Actions for nodes related activities in redux
+ */
 export class FetchData implements Action {
   readonly type = FETCH_DATA;
 

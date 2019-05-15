@@ -1,12 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {select, Store} from '@ngrx/store';
-import {BehaviorSubject, Observable} from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { BehaviorSubject, Observable } from 'rxjs';
 import * as Highcharts from 'highcharts';
-import {filter} from 'rxjs/operators';
-import {ModuleState} from '../module.state';
-import {ConnectedSocketTick} from '../nodes.state';
-import {Node} from '../node.model';
+import { filter } from 'rxjs/operators';
+import { ModuleState } from '../module.state';
+import { ConnectedSocketTick } from '../nodes.state';
+import { Node } from '../node.model';
 
+/**
+ * Component for displaying websocket connection summary visualization
+ */
 @Component({
   selector: 'app-summary-card',
   templateUrl: './summary-card.component.html',
@@ -18,6 +21,8 @@ export class SummaryCardComponent implements OnInit {
   nodes$: Observable<Node[]>;
   sockets$: Observable<ConnectedSocketTick[]>;
   Highcharts = Highcharts;
+
+  // Setup chart options
   chartOptions: Highcharts.Options = {
     chart: {
       zoomType: 'x'
@@ -96,6 +101,7 @@ export class SummaryCardComponent implements OnInit {
             }
           }
 
+          // Display final results
           chart.addSeries({
             type: 'pie',
             name: 'Connections',
