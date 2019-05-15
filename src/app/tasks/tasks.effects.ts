@@ -8,9 +8,15 @@ import { catchError, mergeMap, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import * as appActions from '../app.actions';
 
+/**
+ * Effects for handling redux side effects in the tasks module
+ */
 @Injectable()
 export class TasksEffects {
 
+  /**
+   * Get a list of tasks from the server
+   */
   @Effect() getTasks$ = this.actions$.pipe(
     ofType<actions.FetchTasks>(actions.FETCH_TASKS),
     mergeMap(({projectId}) =>
@@ -21,6 +27,9 @@ export class TasksEffects {
     )
   );
 
+  /**
+   * Create a new task on the server
+   */
   @Effect() createTask$ = this.actions$.pipe(
     ofType<actions.CreateTask>(actions.CREATE_TASK),
     mergeMap(({task}) =>
@@ -35,6 +44,9 @@ export class TasksEffects {
     )
   );
 
+  /**
+   * Generates a new ci token from the server
+   */
   @Effect() generateCiToken$ = this.actions$.pipe(
     ofType<actions.GenerateCiToken>(actions.GENERATE_CI_TOKEN),
     mergeMap(({taskId}) =>

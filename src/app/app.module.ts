@@ -13,6 +13,9 @@ import { MatDialogModule, MatSidenavModule } from '@angular/material';
 import { NavModule } from './nav/nav.module';
 import { SidenavModule } from './sidenav/sidenav.module';
 
+/**
+ * Defines the app module and its dependencies
+ */
 @NgModule({
   declarations: [
     AppComponent

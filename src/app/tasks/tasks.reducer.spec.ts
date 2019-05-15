@@ -3,6 +3,9 @@ import * as actions from './tasks.actions';
 import { reducer } from './tasks.reducer';
 import { Task } from './task.model';
 
+/**
+ * Tests for tasks.reducer
+ */
 describe('Tasks reducer', () => {
 
   it('should return same state if action is not recognized', () => {

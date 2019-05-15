@@ -1,16 +1,19 @@
 import * as actions from './user.actions';
-import {cold} from 'jest-marbles';
-import {UserEffects} from './user.effects';
-import {Actions} from '@ngrx/effects';
-import {UserService} from './user.service';
-import {of, throwError} from 'rxjs';
-import {Store} from '@ngrx/store';
-import {AppState} from '../app.state';
-import {Router} from '@angular/router';
+import { cold } from 'jest-marbles';
+import { UserEffects } from './user.effects';
+import { Actions } from '@ngrx/effects';
+import { UserService } from './user.service';
+import { of, throwError } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { AppState } from '../app.state';
+import { Router } from '@angular/router';
 
 jest.mock('./user.service');
 jest.mock('@angular/router');
 
+/**
+ * Tests for users.effects
+ */
 describe('User Effects', () => {
 
   const state = {

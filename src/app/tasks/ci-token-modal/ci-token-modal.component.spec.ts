@@ -8,6 +8,9 @@ import { of } from 'rxjs';
 
 jest.mock('@ngrx/store');
 
+/**
+ * Tests for ci-token.modal.component
+ */
 describe('CiTokenModalComponent', () => {
 
   const state = {

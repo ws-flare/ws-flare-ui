@@ -14,6 +14,9 @@ export const GENERATE_CI_TOKEN = 'tasks/GENERATE_CI_TOKEN';
 export const GENERATE_CI_TOKEN_OK = 'tasks/GENERATE_CI_TOKEN_OK';
 export const GENERATE_CI_TOKEN_FAIL = 'tasks/GENERATE_CI_TOKEN_FAIL';
 
+/**
+ * Redux actions for tasks related activities
+ */
 export class FetchTasks implements Action {
   readonly type = FETCH_TASKS;
 

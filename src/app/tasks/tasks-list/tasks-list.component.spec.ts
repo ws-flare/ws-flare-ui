@@ -11,6 +11,9 @@ import * as actions from '../tasks.actions';
 jest.mock('@ngrx/store');
 jest.mock('@angular/material');
 
+/**
+ * Tests for tasks-list.component
+ */
 describe('TasksListComponent', () => {
   let component: TasksListComponent;
   let fixture: ComponentFixture<TasksListComponent>;

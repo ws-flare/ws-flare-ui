@@ -7,6 +7,9 @@ import { Task } from './task.model';
 
 jest.mock('apollo-angular');
 
+/**
+ * Tests for tasks.service
+ */
 describe('TasksService', () => {
 
   it('should get a list of tasks', async(() => {

@@ -1,6 +1,9 @@
 import 'jest-preset-angular';
-import {addListener} from 'cluster';
+import { addListener } from 'cluster';
 
+/**
+ * Jests configurations for running unit tests
+ */
 // @ts-ignore
 global.CSS = null;
 
@@ -36,9 +39,7 @@ Object.defineProperty(window, 'matchMedia', {
 });
 
 Object.defineProperty(window, 'globalCompositeOperation', {
-  value: () => ({
-
-  })
+  value: () => ({})
 });
 /**
  * ISSUE: https://github.com/angular/material2/issues/7101

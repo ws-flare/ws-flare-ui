@@ -6,6 +6,9 @@ import { Store } from '@ngrx/store';
 
 jest.mock('@ngrx/store');
 
+/**
+ * Tests for app.component
+ */
 describe('AppComponent', () => {
 
   let element;

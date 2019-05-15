@@ -1,8 +1,11 @@
-import {reducer} from './user.reducer';
-import {UserState, userState} from './user.state';
+import { reducer } from './user.reducer';
+import { UserState, userState } from './user.state';
 import * as actions from './user.actions';
-import {User} from './user.model';
+import { User } from './user.model';
 
+/**
+ * Tests for user.reducer
+ */
 describe('User Reducer', () => {
 
   it('should be able to login', () => {

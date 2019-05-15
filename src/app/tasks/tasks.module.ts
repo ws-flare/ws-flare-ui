@@ -21,6 +21,9 @@ import { CreateTaskModalComponent } from './create-task-modal/create-task-modal.
 import { MonacoEditorModule } from 'ngx-monaco';
 import { CiTokenModalComponent } from './ci-token-modal/ci-token-modal.component';
 
+/**
+ * Defines browser routes for this module
+ */
 const routes: Routes = [
   {
     path: '',
@@ -28,6 +31,9 @@ const routes: Routes = [
   }
 ];
 
+/**
+ * Define the tasks module and its dependencies
+ */
 @NgModule({
   declarations: [TasksComponent, TasksListComponent, CreateTaskModalComponent, CiTokenModalComponent],
   imports: [

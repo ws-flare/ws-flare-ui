@@ -1,3 +1,6 @@
+/**
+ * Describe the attributes of the task model
+ */
 export interface Task {
   id?: string;
   userId?: string;

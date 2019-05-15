@@ -10,6 +10,9 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 
 jest.mock('@ngrx/store');
 
+/**
+ * Tests for create-task-modal.component
+ */
 describe('CreateTaskModalComponent', () => {
   let component: CreateTaskModalComponent;
   let fixture: ComponentFixture<CreateTaskModalComponent>;

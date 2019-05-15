@@ -2,6 +2,12 @@ import { tasksState, TasksState } from './tasks.state';
 import { TasksActions } from './tasks.actions';
 import * as actions from './tasks.actions';
 
+/**
+ * Redux reducer for handling logic of the tasks module
+ * @param state - The current state
+ * @param action - The action performed
+ * @returns state - The new state
+ */
 export function reducer(state: TasksState = tasksState, action: TasksActions): TasksState {
   switch (action.type) {
     case actions.FETCH_TASKS:

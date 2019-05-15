@@ -1,6 +1,9 @@
 import { Routes } from '@angular/router';
 import { IsLoggedInGuard } from './core/is-logged-in.guard';
 
+/**
+ * Defines the browser routes for the application
+ */
 export const appRoutes: Routes = [
   {
     path: 'home',

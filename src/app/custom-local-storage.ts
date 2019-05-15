@@ -1,3 +1,8 @@
+/**
+ * Creates a fake local storage mechanism for server side rendering.
+ * This is needed because local storage is not available when rendering
+ * from the server
+ */
 export const customStorage: Storage = {
   length: 0,
   clear: function (): void {

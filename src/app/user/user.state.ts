@@ -1,5 +1,8 @@
 import { User } from './user.model';
 
+/**
+ * Default redux state for the user module
+ */
 export const userState: UserState = {
   isLoggingIn: false,
   isLoggedIn: false,
@@ -16,6 +19,9 @@ export const userState: UserState = {
   }
 };
 
+/**
+ * Describes the attributes of the user state in redux
+ */
 export interface UserState {
   isLoggingIn: boolean;
   isLoggedIn: boolean;

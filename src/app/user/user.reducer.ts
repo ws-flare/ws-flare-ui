@@ -1,7 +1,13 @@
-import {userState, UserState} from './user.state';
-import {UserActions} from './user.actions';
+import { userState, UserState } from './user.state';
+import { UserActions } from './user.actions';
 import * as actions from './user.actions';
 
+/**
+ * Handles logic in redux for the user module
+ * @param state - The current state
+ * @param action - The action performed
+ * @return state - The new state
+ */
 export function reducer(state: UserState = userState, action: UserActions) {
   switch (action.type) {
     case actions.LOGIN:

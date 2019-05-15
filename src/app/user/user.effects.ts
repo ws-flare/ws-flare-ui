@@ -8,9 +8,15 @@ import { AppState } from '../app.state';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 
+/**
+ * Effects for handling user redux side effects
+ */
 @Injectable()
 export class UserEffects {
 
+  /**
+   * Handles user login
+   */
   @Effect() login$ = this.actions$.pipe(
     ofType(actions.LOGIN),
     withLatestFrom(this.store$),
@@ -26,6 +32,9 @@ export class UserEffects {
     )
   );
 
+  /**
+   * Handles user sign up
+   */
   @Effect() signup$ = this.actions$.pipe(
     ofType(actions.SIGNUP),
     withLatestFrom(this.store$),

@@ -12,6 +12,9 @@ import * as appActions from '../app.actions';
 jest.mock('./tasks.service');
 jest.mock('@angular/router');
 
+/**
+ * Tests for tasks.effects
+ */
 describe('Tasks Effects', () => {
 
   const state = {};

@@ -12,6 +12,9 @@ import { CreateTaskModalComponent } from './create-task-modal/create-task-modal.
 jest.mock('@ngrx/store');
 jest.mock('@angular/material');
 
+/**
+ * Tests for tasks.component
+ */
 describe('TasksComponent', () => {
   let component: TasksComponent;
   let fixture: ComponentFixture<TasksComponent>;

@@ -6,6 +6,9 @@ import {SignupForm} from './user.state';
 
 jest.mock('apollo-angular');
 
+/**
+ * Tests for user.service
+ */
 describe('UserService', () => {
 
   const user = {
